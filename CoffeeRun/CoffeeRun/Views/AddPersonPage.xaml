@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CoffeeRun.Views.AddPersonPage"
+             Visual="Material"
+             Title="Add Person">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#E0D7C0">
+            <Grid RowSpacing="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="AUTO"/>
+                    <RowDefinition Height="AUTO"/>
+                    <RowDefinition Height="AUTO"/>
+                </Grid.RowDefinitions>
+                <!--Header Image-->
+                <Image Source="coffeecups.jpg" Aspect="AspectFill" HeightRequest="200"/>
+
+
+                <!--Entry-->
+                <StackLayout Grid.Row="1" Margin="20,5,20,0" Padding="10">
+                    <Entry x:Name="name"
+                           Placeholder="Enter name"
+                           TextColor="#351209"
+                           Keyboard="Text"/>
+                    <Picker x:Name="coffeetype" Title="Select Coffee"
+                            TextColor="#351209"
+                            VerticalOptions="CenterAndExpand">
+                        <Picker.Items>
+                            <x:String>Black</x:String>
+                            <x:String>2 Cream</x:String>
+                            <x:String>Double Double</x:String>
+                            <x:String>Regular</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Picker x:Name="coffeesize" Title="Select Size"
+                            TextColor="#351209"
+                            VerticalOptions="CenterAndExpand">
+                        <Picker.Items>
+                            <x:String>Small</x:String>
+                            <x:String>Medium</x:String>
+                            <x:String>Large</x:String>
+                            <x:String>X-Large</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label Margin="10,10,0,0" FontSize="Large" 
+                               TextColor="#351209" Text="Paid"/>
+                        <CheckBox HorizontalOptions="StartAndExpand"/>
+                    </StackLayout>
+                    
+                    <Button x:Name="save" Text="Save"
+                        BackgroundColor="#351209"
+                        TextColor="#E0D7C0"
+                        CornerRadius="25"/>
+                    <Button x:Name="cancel" Text="Cancel"
+                        BackgroundColor="#351209"
+                        TextColor="#E0D7C0"
+                        CornerRadius="25"/>
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

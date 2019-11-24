@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:local="clr-namespace:CoffeeRun.Views"
+       Title="CoffeeRun"
+       x:Class="CoffeeRun.AppShell"
+       FlyoutBackgroundColor="#E0D7C0">
+
+    <!-- 
+        Styles and Resources 
+    -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#351209</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#351209" />
+                <Setter Property="Shell.ForegroundColor" Value="#E0D7C0" />
+                <Setter Property="Shell.TitleColor" Value="#E0D7C0" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="Blue" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#351209" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#946E4A"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#E0D7C0"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <!-- Your Pages -->
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="300">
+            <Image Source="coffeebeans1.jpg"
+                   Aspect="AspectFill"
+                   HeightRequest="300"
+                   HorizontalOptions="FillAndExpand"/>
+            <Label Text="Coffee Run"
+                   TextColor="White"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   VerticalOptions="End"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+    <!--First-->
+    <FlyoutItem Title="Current Order" Style="{StaticResource BaseStyle}">
+        <Tab Title="Current Order">
+            <ShellContent ContentTemplate="{DataTemplate local:CurrentOrderPage}"/>
+        </Tab>
+        <Tab Title="Past Orders">
+            <ShellContent ContentTemplate="{DataTemplate local:PastOrderPage}"/>
+        </Tab>
+    </FlyoutItem>
+    <!--Second-->
+    <FlyoutItem Title="Add Person" Style="{StaticResource BaseStyle}">
+        <Tab Title="Add Person">
+            <ShellContent ContentTemplate="{DataTemplate local:AddPersonPage}"/>
+        </Tab>
+    </FlyoutItem>
+    <!--Third-->
+    <FlyoutItem Title="About" Style="{StaticResource BaseStyle}">
+        <Tab Title="About">
+            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}"/>
+        </Tab>
+    </FlyoutItem>
+
+</Shell>
