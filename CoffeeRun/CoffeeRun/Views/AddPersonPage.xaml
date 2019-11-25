@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="CoffeeRun.Views.AddPersonPage"
              Visual="Material"
-             Title="Add Person">
+             Title="Add Customer">
     <ContentPage.Content>
         <ScrollView BackgroundColor="#E0D7C0">
             <Grid RowSpacing="2">
@@ -45,13 +45,7 @@
                             <x:String>X-Large</x:String>
                         </Picker.Items>
                     </Picker>
-                    
-                    <StackLayout Orientation="Horizontal">
-                        <Label Margin="10,10,0,0" FontSize="Large" 
-                               TextColor="#351209" Text="Paid"/>
-                        <CheckBox HorizontalOptions="StartAndExpand"/>
-                    </StackLayout>
-                    
+
                     <Button x:Name="save" Text="Save"
                         BackgroundColor="#351209"
                         TextColor="#E0D7C0"
