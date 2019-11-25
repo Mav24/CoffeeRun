@@ -7,7 +7,7 @@
              x:Class="CoffeeRun.Views.CurrentOrderPage"
              Title="Current Order">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Person"/>
+        <ToolbarItem Text="Create Order"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
