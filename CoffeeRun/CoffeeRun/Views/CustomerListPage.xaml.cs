@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace CoffeeRun.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreateOrderPage : ContentPage
+    public partial class CustomerListPage : ContentPage
     {
-        public CreateOrderPage()
+        public CustomerListPage()
         {
             InitializeComponent();
         }

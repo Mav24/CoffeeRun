@@ -38,10 +38,11 @@
                    HeightRequest="300"
                    HorizontalOptions="FillAndExpand"/>
             <Label Text="Coffee Run"
-                   TextColor="White"
-                   FontSize="Large"
+                   TextColor="#E0D7C0"
+                   FontSize="50"
+                   FontAttributes="Bold"
                    HorizontalOptions="Center"
-                   VerticalOptions="End"/>
+                   VerticalOptions="Center"/>
         </Grid>
     </Shell.FlyoutHeader>
     <!--First-->
@@ -54,9 +55,9 @@
         </Tab>
     </FlyoutItem>
     <!--Second-->
-    <FlyoutItem Title="Add Person" Style="{StaticResource BaseStyle}">
-        <Tab Title="Add Person">
-            <ShellContent ContentTemplate="{DataTemplate local:AddPersonPage}"/>
+    <FlyoutItem Title="Customers" Style="{StaticResource BaseStyle}">
+        <Tab Title="Customers">
+            <ShellContent ContentTemplate="{DataTemplate local:CustomerListPage}"/>
         </Tab>
     </FlyoutItem>
     <!--Third-->

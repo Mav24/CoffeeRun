@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CoffeeRun.Views.CustomerListPage"
+             Title="Customer List">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Customer"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout  BackgroundColor="#E0D7C0">
+            <ListView x:Name="customerslist"
+                  SeparatorColor="Black"
+                  HasUnevenRows="True"
+                  CachingStrategy="RecycleElementAndDataTemplate">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame HasShadow="True">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                                        <Label/>
+                                        <Label/>
+                                    </StackLayout>
+                                    <Label/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Margin="20,5,20,0" Padding="10">
+                <Button x:Name="CreateOrder" Text="Create Order"
+                        BackgroundColor="#351209"
+                        TextColor="#E0D7C0"
+                        CornerRadius="25"/>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
