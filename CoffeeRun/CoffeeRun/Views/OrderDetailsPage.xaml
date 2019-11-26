@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CoffeeRun.Views.OrderDetailsPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#E0D7C0">
+            <StackLayout>
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="AUTO"/>
+                        <RowDefinition Height="AUTO"/>
+                        <RowDefinition Height="AUTO"/>
+                        <RowDefinition Height="AUTO"/>
+                        <RowDefinition Height="AUTO"/>
+                        <RowDefinition Height="AUTO"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Header-->
+                    <Image Grid.ColumnSpan="2" Source="coffeecup.jpg" Aspect="AspectFill" HeightRequest="150"/>
+                    <StackLayout Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#351209" HorizontalOptions="FillAndExpand">
+                        <BoxView HeightRequest="20"/>
+                    </StackLayout>
+
+                    <!--INFO-->
+                    <StackLayout Grid.Row="2" Margin="5,5">
+                        <d:Label x:Name="smallblack" Text="Small Black: 1"/>
+                        <d:Label x:Name="smallTwoCream" Text="Small 2 Cream: 2"/>
+                        <d:Label x:Name="smallDoubleDouble" Text="Small Double Double: 2"/>
+                        <d:Label x:Name="smallRegular" Text="Small Regular: 2"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="1" Margin="5,5">
+                        <d:Label x:Name="mediumblack" Text="Medium Black: 1"/>
+                        <d:Label x:Name="mediumTwoCream" Text="Medium 2 Cream: 2"/>
+                        <d:Label x:Name="mediumDoubleDouble" Text=" Medium Double Double: 1"/>
+                        <d:Label x:Name="mediumRegular" Text="Medium Regular: 2"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Margin="5,5">
+                        <d:Label x:Name="largeblack" Text="Large Black: 1"/>
+                        <d:Label x:Name="largeTwoCream" Text="Large 2 Cream: 2"/>
+                        <d:Label x:Name="largeDoubleDouble" Text="Large Double Double: 2"/>
+                        <d:Label x:Name="largeRegular" Text="Large Regular: 2"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.Column="1" Margin="5,5">
+                        <d:Label x:Name="xLargeblack" Text="X-Large Black: 2"/>
+                        <d:Label x:Name="xLargeTwoCream" Text="X-Large 2 Cream:2"/>
+                        <d:Label x:Name="xLargeDoubleDouble" Text="X-Large Double Double: 2"/>
+                        <d:Label x:Name="xLargeRegular" Text="X-Large Regular: 2"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

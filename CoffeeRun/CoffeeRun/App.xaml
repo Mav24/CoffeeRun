@@ -11,6 +11,11 @@
                 <Setter Property="TextColor" Value="#351209"/>
                 <Setter Property="FontSize" Value="Large"/>
             </Style>
+            <Style x:Key="otherlabels" TargetType="Label" BasedOn="{StaticResource labels}">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="#351209"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
