@@ -7,13 +7,12 @@
              x:Class="CoffeeRun.Views.CurrentOrderPage"
              Title="Current Order">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Create Order"
-                     Clicked="CreateNewOrder"/>
+        <ToolbarItem Text="Add/Create Order"
+                     Clicked="AddOrCreateOrder"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="AUTO"/>
                 <RowDefinition Height="AUTO"/>
                 <RowDefinition Height="AUTO"/>
                 <RowDefinition Height="AUTO"/>

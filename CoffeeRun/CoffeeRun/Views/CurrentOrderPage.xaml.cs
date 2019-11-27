@@ -65,13 +65,9 @@ namespace CoffeeRun.Views
 
         }
 
-        async void CreateNewOrder(object sender, EventArgs e)
+        async void AddOrCreateOrder(object sender, EventArgs e)
         {
-            if (await DisplayAlert("Warning", "Are you sure you want to create a new order. Current order will be deleted!", "Yes", "No"))
-            {
-                await _connection.DeleteAllAsync<CurrentOrder>();
-                await Shell.Current.GoToAsync("//CustomerListPage");
-            }
+            await Shell.Current.GoToAsync("//CustomerListPage");
         }
     }
 }

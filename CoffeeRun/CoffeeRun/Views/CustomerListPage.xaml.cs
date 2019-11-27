@@ -34,6 +34,10 @@ namespace CoffeeRun.Views
             await _connection.CreateTableAsync<Customer>();
             _customers = new ObservableCollection<Customer>((await _connection.Table<Customer>().ToListAsync()));
             customerslist.ItemsSource = _customers;
+
+            // Gets Table from Current order
+            _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
+            
         }
 
         private void AddCustomer_Clicked(object sender, EventArgs e)
@@ -67,25 +71,90 @@ namespace CoffeeRun.Views
 
         private void EditCustomer(object sender, EventArgs e)
         {
+            
             //TODO: Edit customer profile.
         }
 
+        
         async void CreateNewOrder_Clicked(object sender, EventArgs e)
         {
-            _currentOrder = new ObservableCollection<CurrentOrder>();
+            if (_currentOrder.Count > 0)
+            {
+                if (await DisplayAlert("Warning!", "Do you want to add to the current order or create new order?", "New", "Add"))
+                {
+                    await _connection.DeleteAllAsync<CurrentOrder>();
+                    foreach (var item in selectedList)
+                    {
+                        CurrentOrder order = new CurrentOrder()
+                        {
+                            Name = item.Name,
+                            CoffeeSize = item.CoffeeSize,
+                            CoffeeType = item.CoffeeType,
+                            Paid = false
+                        };
+                        await _connection.InsertAsync(order);
+                        _currentOrder.Add(order);
+
+                    }
+                    selectedList.Clear();
+                    await Shell.Current.GoToAsync("//CurrentOrderPage");
+                }
+                else
+                {
+                    await AddToOrder();
+                }
+            }
+            else
+            {
+                await AddToOrder();
+            }
+            
+        }
+
+        private async Task AddToOrder()
+        {
+            // Create a list for current order names
+            List<string> currentOrderNames = new List<string>();
+
+            // Create a list for duplicate names
+            List<string> duplicateNames = new List<string>();
+
+            foreach (var name in _currentOrder)
+            {
+                currentOrderNames.Add(name.Name);
+            }
             foreach (var item in selectedList)
             {
-                CurrentOrder order = new CurrentOrder()
+                
+                if (!currentOrderNames.Contains(item.Name))
                 {
-                    Name = item.Name,
-                    CoffeeSize = item.CoffeeSize,
-                    CoffeeType = item.CoffeeType,
-                    Paid = false
-                };
-                await _connection.InsertAsync(order);
-                _currentOrder.Add(order);
+                    CurrentOrder order = new CurrentOrder()
+                    {
+                        Name = item.Name,
+                        CoffeeSize = item.CoffeeSize,
+                        CoffeeType = item.CoffeeType,
+                        Paid = false
+                    };
+                    await _connection.InsertAsync(order);
+                    _currentOrder.Add(order);
+                }
+                else
+                {
+                    duplicateNames.Add(item.Name);
+                }
+                
 
             }
+            // Creating a message with the duplicate names
+            var message = string.Empty;
+            foreach (var item in duplicateNames)
+            {
+                message += item + ", ";
+            }
+
+            // Clears selected customers
+            selectedList.Clear();
+            await DisplayAlert("Name Exist!", $"{message} Already exist in current order", "Ok");
             await Shell.Current.GoToAsync("//CurrentOrderPage");
         }
     }

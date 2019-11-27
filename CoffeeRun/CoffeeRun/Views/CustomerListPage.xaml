@@ -32,7 +32,7 @@
                                     </StackLayout>
                                     <StackLayout VerticalOptions="Center">
                                         <Label Text="Add to order" Style="{StaticResource otherlabels}"/>
-                                        <CheckBox HorizontalOptions="Center" Color="#351209"
+                                        <CheckBox x:Name="checkBox" HorizontalOptions="Center" Color="#351209"
                                                   CheckedChanged="CheckBox_CheckedChanged" IsChecked="{Binding AddToOrderChecked}"/>
                                     </StackLayout>
                                 </StackLayout>
@@ -53,7 +53,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout Margin="20,5,20,0" Padding="10">
-                <Button x:Name="CreateNewOrder" Text="Create Order"
+                <Button x:Name="CreateNewOrder" Text="Add/Create"
                         BackgroundColor="#351209"
                         TextColor="#E0D7C0"
                         CornerRadius="25"

@@ -10,7 +10,7 @@
             <StackLayout>
                 <Grid RowSpacing="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="AUTO"/>
+                        <RowDefinition Height="3*"/>
                         <RowDefinition Height="AUTO"/>
                         <RowDefinition Height="AUTO"/>
                         <RowDefinition Height="AUTO"/>
@@ -18,8 +18,8 @@
                         <RowDefinition Height="AUTO"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="AUTO"/>
+                        <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <!--Header-->
                     <Image Grid.ColumnSpan="2" Source="coffeecup.jpg" Aspect="AspectFill" HeightRequest="150"/>
