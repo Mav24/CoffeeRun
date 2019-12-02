@@ -69,9 +69,11 @@ namespace CoffeeRun.Views
             }
         }
 
-        private void EditCustomer(object sender, EventArgs e)
+        async void EditCustomer(object sender, EventArgs e)
         {
-            
+            bool update = true;
+            var customer = (sender as MenuItem).CommandParameter as Customer;
+            await Shell.Current.Navigation.PushModalAsync(new AddPersonPage(customer, update));
             //TODO: Edit customer profile.
         }
 
@@ -154,7 +156,12 @@ namespace CoffeeRun.Views
 
             // Clears selected customers
             selectedList.Clear();
-            await DisplayAlert("Name Exist!", $"{message} Already exist in current order", "Ok");
+
+            // Check if there is duplicate names
+            if (duplicateNames.Count > 0)
+            {
+                await DisplayAlert("Name Exist!", $"{message} Already exist in current order", "Ok");
+            }
             await Shell.Current.GoToAsync("//CurrentOrderPage");
         }
     }

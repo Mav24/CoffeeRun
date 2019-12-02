@@ -13,7 +13,7 @@
             </Style>
             <Style x:Key="otherlabels" TargetType="Label" BasedOn="{StaticResource labels}">
                 <Setter Property="FontSize" Value="Small"/>
-                <Setter Property="TextColor" Value="#351209"/>
+                <Setter Property="TextColor" Value="#462913"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
         </ResourceDictionary>

@@ -16,26 +16,15 @@
                 <RowDefinition Height="AUTO"/>
                 <RowDefinition Height="AUTO"/>
                 <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="AUTO"/>
             </Grid.RowDefinitions>
             <!--Header Image-->
             <Image Source="personpageimage.jpg" Aspect="AspectFill" HeightRequest="150"/>
-            <!---->
-            <StackLayout Spacing="5" Grid.Row="1" BackgroundColor="#E0D7C0">
-
-                <!--<StackLayout Padding="0" Spacing="0" Orientation="Vertical" >
-                    <Label x:Name="small" Text="Small" Style="{StaticResource labels}"/>
-                    <Label x:Name="medium" Text="M:1" Style="{StaticResource labels}"/>
-                    <Label x:Name="large" Text="L:1" Style="{StaticResource labels}"/>
-                    <Label x:Name="xlarge" Margin="0,0,20,0" Text="Xl:2" Style="{StaticResource labels}"/>
-                </StackLayout>-->
-
-            </StackLayout>
-            <StackLayout Grid.Row="2" BackgroundColor="#351209" HorizontalOptions="FillAndExpand">
+            <StackLayout Grid.Row="1" BackgroundColor="#351209" HorizontalOptions="FillAndExpand">
                 <BoxView HeightRequest="20"/>
             </StackLayout>
             <!--Page Content-->
-            <ListView x:Name="currentOrderList" BackgroundColor="#E0D7C0" Grid.Row="3"
+            
+            <ListView x:Name="currentOrderList" BackgroundColor="#E0D7C0" Grid.Row="2"
                           SeparatorColor="Black"
                           HasUnevenRows="True"
                           CachingStrategy="RecycleElementAndDataTemplate">

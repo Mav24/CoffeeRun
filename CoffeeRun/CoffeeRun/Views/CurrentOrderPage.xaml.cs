@@ -17,11 +17,6 @@ namespace CoffeeRun.Views
     {
         private SQLiteAsyncConnection _connection;
         private ObservableCollection<CurrentOrder> _currentOrder;
-        private int smallCoffee;
-        private int mediumCoffee;
-        private int largeCoffee;
-        private int xLargeCoffee;
-
         public CurrentOrderPage()
         {
             InitializeComponent();
@@ -33,30 +28,6 @@ namespace CoffeeRun.Views
             base.OnAppearing();
             await _connection.CreateTableAsync<CurrentOrder>();
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
-            foreach (var item in _currentOrder)
-            {
-                switch (item.CoffeeSize)
-                {
-                    case "Small":
-                        smallCoffee += 1;
-                        break;
-                    case "Medium":
-                        mediumCoffee += 1;
-                        break;
-                    case "Large":
-                        largeCoffee += 1;
-                        break;
-                    case "X-Large":
-                        xLargeCoffee += 1;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            //small.Text = $"S:{smallCoffee}";
-            //medium.Text = $"M:{mediumCoffee}";
-            //large.Text = $"L:{largeCoffee}";
-            //xlarge.Text = $"Xl:{xLargeCoffee}";
             currentOrderList.ItemsSource = _currentOrder;
         }
 
