@@ -33,7 +33,28 @@ namespace CoffeeRun.Views
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
+            var checkbox = (CheckBox)sender;
 
+            CurrentOrder customer = checkbox.BindingContext as CurrentOrder;
+
+            if (customer != null)
+            {
+                AddOrUpdateTheResult(customer, checkbox);
+            }
+        }
+
+        async void AddOrUpdateTheResult(CurrentOrder customer, CheckBox checkbox)
+        {
+            if (checkbox.IsChecked)
+            {
+                customer.Paid = true;
+                await _connection.UpdateAsync(customer);
+            }
+            else
+            {
+                customer.Paid = false;
+                await _connection.UpdateAsync(customer);
+            }
         }
 
         async void AddOrCreateOrder(object sender, EventArgs e)

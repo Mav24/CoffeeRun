@@ -57,6 +57,7 @@
                         BackgroundColor="#351209"
                         TextColor="#E0D7C0"
                         CornerRadius="25"
+                        IsEnabled="False"
                         Clicked="CreateNewOrder_Clicked"/>
             </StackLayout>
         </StackLayout>

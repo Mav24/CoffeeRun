@@ -48,7 +48,7 @@ namespace CoffeeRun.Views
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             selectedList = new ObservableCollection<Customer>();
-
+            
             for (int i = 0; i < _customers.Count; i++)
             {
                 Customer item = _customers[i];
@@ -56,6 +56,14 @@ namespace CoffeeRun.Views
                 {
                     selectedList.Add(item);
                 }
+            }
+            if (selectedList.Count > 0)
+            {
+                CreateNewOrder.IsEnabled = true;
+            }
+            else
+            {
+                CreateNewOrder.IsEnabled = false;
             }
         }
 
@@ -79,7 +87,8 @@ namespace CoffeeRun.Views
 
         
         async void CreateNewOrder_Clicked(object sender, EventArgs e)
-        {
+        { 
+            
             if (_currentOrder.Count > 0)
             {
                 if (await DisplayAlert("Warning!", "Do you want to add to the current order or create new order?", "New", "Add"))
@@ -96,6 +105,7 @@ namespace CoffeeRun.Views
                         };
                         await _connection.InsertAsync(order);
                         _currentOrder.Add(order);
+                        CreateNewOrder.IsEnabled = false;
 
                     }
                     selectedList.Clear();
@@ -104,11 +114,13 @@ namespace CoffeeRun.Views
                 else
                 {
                     await AddToOrder();
+                    CreateNewOrder.IsEnabled = false;
                 }
             }
             else
             {
                 await AddToOrder();
+                CreateNewOrder.IsEnabled = false;
             }
             
         }
