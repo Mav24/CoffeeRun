@@ -13,8 +13,14 @@
             </Style>
             <Style x:Key="otherlabels" TargetType="Label" BasedOn="{StaticResource labels}">
                 <Setter Property="FontSize" Value="Small"/>
-                <Setter Property="TextColor" Value="#462913"/>
+                <Setter Property="TextColor" Value="#311109"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#351209"/>
+                <Setter Property="TextColor" Value="#E0D7C0"/>
+                <Setter Property="CornerRadius" Value="25"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

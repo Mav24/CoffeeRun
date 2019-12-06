@@ -61,5 +61,10 @@ namespace CoffeeRun.Views
         {
             await Shell.Current.GoToAsync("//CustomerListPage");
         }
+
+        private void CurrentOrderList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            currentOrderList.SelectedItem = null;
+        }
     }
 }

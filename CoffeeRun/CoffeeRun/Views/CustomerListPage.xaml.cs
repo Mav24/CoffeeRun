@@ -1,5 +1,4 @@
 ﻿using CoffeeRun.Models;
-using CoffeeRun.ViewModels;
 using MarcTron.Plugin;
 using SQLite;
 using System;
@@ -48,7 +47,7 @@ namespace CoffeeRun.Views
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             selectedList = new ObservableCollection<Customer>();
-            
+
             for (int i = 0; i < _customers.Count; i++)
             {
                 Customer item = _customers[i];
@@ -65,6 +64,28 @@ namespace CoffeeRun.Views
             {
                 CreateNewOrder.IsEnabled = false;
             }
+
+            #region Something I'm working on
+            //var checkBox = (CheckBox)sender;
+            //Customer customer = checkBox.BindingContext as Customer;
+
+            //if (customer.AddToOrderChecked)
+            //{
+            //    selectedList.Add(customer);
+            //}
+            //else if (customer.AddToOrderChecked == false)
+            //{
+            //    selectedList.Remove(customer);
+            //}
+            //if (selectedList.Count > 0)
+            //{
+            //    CreateNewOrder.IsEnabled = true;
+            //}
+            //else
+            //{
+            //    CreateNewOrder.IsEnabled = false;
+            //}
+            #endregion
         }
 
         async void DeleteCustomer(object sender, EventArgs e)
@@ -82,7 +103,7 @@ namespace CoffeeRun.Views
             bool update = true;
             var customer = (sender as MenuItem).CommandParameter as Customer;
             await Shell.Current.Navigation.PushModalAsync(new AddPersonPage(customer, update));
-            //TODO: Edit customer profile.
+            
         }
 
         
@@ -175,6 +196,11 @@ namespace CoffeeRun.Views
                 await DisplayAlert("Name Exist!", $"{message} Already exist in current order", "Ok");
             }
             await Shell.Current.GoToAsync("//CurrentOrderPage");
+        }
+
+        private void Customerslist_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            customerslist.SelectedItem = null;
         }
     }
 }

@@ -27,7 +27,8 @@
             <ListView x:Name="currentOrderList" BackgroundColor="#E0D7C0" Grid.Row="2"
                           SeparatorColor="Black"
                           HasUnevenRows="True"
-                          CachingStrategy="RecycleElementAndDataTemplate">
+                          CachingStrategy="RecycleElementAndDataTemplate"
+                      ItemSelected="CurrentOrderList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -91,5 +91,14 @@ namespace CoffeeRun.Views
             _orderDetails.Add(orderDetails);
             OrderDetailsCollectionView.ItemsSource = _orderDetails;
         }
+
+        async void CompleteOrder(object sender, EventArgs e)
+        {
+            if (await DisplayAlert("Finish order!", "Are you sure you want to finish current order?", "Yes", "No"))
+            {
+                await _connection.DeleteAllAsync<CurrentOrder>();
+                _orderDetails.Clear();
+            }
+        }
     }
 }

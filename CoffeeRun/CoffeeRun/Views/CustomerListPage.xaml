@@ -17,7 +17,8 @@
             <ListView x:Name="customerslist"
                       SeparatorColor="Black"
                       HasUnevenRows="True"
-                      CachingStrategy="RecycleElementAndDataTemplate">
+                      CachingStrategy="RecycleElementAndDataTemplate"
+                      ItemTapped="Customerslist_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -54,9 +55,6 @@
             </ListView>
             <StackLayout Margin="20,5,20,0" Padding="10">
                 <Button x:Name="CreateNewOrder" Text="Add/Create"
-                        BackgroundColor="#351209"
-                        TextColor="#E0D7C0"
-                        CornerRadius="25"
                         IsEnabled="False"
                         Clicked="CreateNewOrder_Clicked"/>
             </StackLayout>
