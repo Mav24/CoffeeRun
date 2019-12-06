@@ -22,7 +22,7 @@
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="Blue" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="#351209" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#946E4A"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="#E0D7C0"/>
             </Style>
@@ -47,16 +47,23 @@
     </Shell.FlyoutHeader>
     <!--First-->
     <FlyoutItem Title="Current Order" Style="{StaticResource BaseStyle}">
-        <Tab Title="Current Order">
-            <ShellContent ContentTemplate="{DataTemplate local:CurrentOrderPage}"/>
+        <Tab Route="CurrentOrderPage" 
+             Title="Current Order">
+             <ShellContent ContentTemplate="{DataTemplate local:CurrentOrderPage}"/>
         </Tab>
-        <Tab Title="Past Orders">
+        <Tab Route="OrderDetailsPage"
+             Title="Order Details">
+            <ShellContent ContentTemplate="{DataTemplate local:OrderDetailsPage}"/>
+        </Tab>
+        <Tab Route="PastOrders" 
+             Title="Past Orders">
             <ShellContent ContentTemplate="{DataTemplate local:PastOrderPage}"/>
         </Tab>
     </FlyoutItem>
     <!--Second-->
     <FlyoutItem Title="Customers" Style="{StaticResource BaseStyle}">
-        <Tab Title="Customers">
+        <Tab Route="CustomerListPage" 
+            Title="Customers">
             <ShellContent ContentTemplate="{DataTemplate local:CustomerListPage}"/>
         </Tab>
     </FlyoutItem>

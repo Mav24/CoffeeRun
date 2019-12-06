@@ -1,0 +1,5 @@
+﻿Things I want to add to the app
+
+- Add location for coffee shops around you
+
+- Need to think about what to do with passed orders page.

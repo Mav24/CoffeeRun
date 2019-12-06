@@ -49,11 +49,13 @@
                     <Button x:Name="save" Text="Save"
                         BackgroundColor="#351209"
                         TextColor="#E0D7C0"
-                        CornerRadius="25"/>
+                        CornerRadius="25"
+                            Clicked="Save_Clicked"/>
                     <Button x:Name="cancel" Text="Cancel"
                         BackgroundColor="#351209"
                         TextColor="#E0D7C0"
-                        CornerRadius="25"/>
+                        CornerRadius="25"
+                            Clicked="Cancel_Clicked"/>
 
                 </StackLayout>
             </Grid>
