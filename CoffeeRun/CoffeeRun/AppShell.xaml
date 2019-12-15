@@ -73,5 +73,10 @@
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}"/>
         </Tab>
     </FlyoutItem>
+    <FlyoutItem Title="CoffeeShops" Style="{StaticResource BaseStyle}">
+        <Tab Title="Find Coffee Shop">
+            <ShellContent ContentTemplate="{DataTemplate local:PastOrderPage}"/>
+        </Tab>
+    </FlyoutItem>
 
 </Shell>

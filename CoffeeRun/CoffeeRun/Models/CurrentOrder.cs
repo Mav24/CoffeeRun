@@ -7,7 +7,7 @@ namespace CoffeeRun.Models
 {
     public class CurrentOrder
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int Id { get; set; }
         public string Name { get; set; }
         public string CoffeeSize { get; set; }

@@ -119,6 +119,7 @@ namespace CoffeeRun.Views
                     {
                         CurrentOrder order = new CurrentOrder()
                         {
+                            Id = item.Id,
                             Name = item.Name,
                             CoffeeSize = item.CoffeeSize,
                             CoffeeType = item.CoffeeType,
@@ -165,6 +166,7 @@ namespace CoffeeRun.Views
                 {
                     CurrentOrder order = new CurrentOrder()
                     {
+                        Id = item.Id,
                         Name = item.Name,
                         CoffeeSize = item.CoffeeSize,
                         CoffeeType = item.CoffeeType,

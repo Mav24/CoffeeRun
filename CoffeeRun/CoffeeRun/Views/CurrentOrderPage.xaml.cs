@@ -66,5 +66,22 @@ namespace CoffeeRun.Views
         {
             currentOrderList.SelectedItem = null;
         }
+
+        async void RemoveFromOrder_Clicked(object sender, EventArgs e)
+        {
+            var removeCustomer = (sender as MenuItem).CommandParameter as CurrentOrder;
+            if (await DisplayAlert("Warning!", $"Are you sure you want to remove {removeCustomer.Name} from current order?", "Yes", "No"))
+            {
+                await _connection.DeleteAsync(removeCustomer);
+                _currentOrder.Remove(removeCustomer);
+            }
+        }
+
+        async void EditCustomer_Clicked(object sender, EventArgs e)
+        {
+            bool update = true;
+            var currentOrderCustomer = (sender as MenuItem).CommandParameter as CurrentOrder;
+            await Shell.Current.Navigation.PushModalAsync(new AddPersonPage(currentOrderCustomer, update));
+        }
     }
 }

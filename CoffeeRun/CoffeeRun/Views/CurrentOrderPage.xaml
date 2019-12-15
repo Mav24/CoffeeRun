@@ -48,6 +48,17 @@
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Text="Remove"
+                                    IsDestructive="True"
+                                    Clicked="RemoveFromOrder_Clicked"
+                                    CommandParameter="{Binding .}"/>
+                                <MenuItem
+                                    Text="Edit"
+                                    Clicked="EditCustomer_Clicked"
+                                    CommandParameter="{Binding .}"/>
+                            </ViewCell.ContextActions>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
