@@ -17,6 +17,8 @@ namespace CoffeeRun.Views
     {
         private SQLiteAsyncConnection _connection;
         private ObservableCollection<CurrentOrder> _currentOrder;
+        private int paidCount;
+        private int unPaidCount;
         public CurrentOrderPage()
         {
             InitializeComponent();
@@ -29,6 +31,8 @@ namespace CoffeeRun.Views
             await _connection.CreateTableAsync<CurrentOrder>();
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
             currentOrderList.ItemsSource = _currentOrder;
+            var currentOrderCount = _currentOrder.Count;
+            CheckCount();
         }
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -47,11 +51,13 @@ namespace CoffeeRun.Views
         {
             if (checkbox.IsChecked)
             {
+                CheckCount();
                 customer.Paid = true;
                 await _connection.UpdateAsync(customer);
             }
             else
             {
+                CheckCount();
                 customer.Paid = false;
                 await _connection.UpdateAsync(customer);
             }
@@ -74,7 +80,14 @@ namespace CoffeeRun.Views
             {
                 await _connection.DeleteAsync(removeCustomer);
                 _currentOrder.Remove(removeCustomer);
+                CheckCount();
             }
+        }
+
+        private void CheckCount()
+        {
+            paidChecked.Text = _currentOrder.Count(x => x.Paid).ToString();
+            numberOfCoffees.Text = _currentOrder.Count().ToString();
         }
 
         async void EditCustomer_Clicked(object sender, EventArgs e)
