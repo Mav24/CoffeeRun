@@ -15,10 +15,8 @@ namespace CoffeeRun.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CurrentOrderPage : ContentPage
     {
-        private SQLiteAsyncConnection _connection;
+        private readonly SQLiteAsyncConnection _connection;
         private ObservableCollection<CurrentOrder> _currentOrder;
-        private int paidCount;
-        private int unPaidCount;
         public CurrentOrderPage()
         {
             InitializeComponent();
@@ -31,7 +29,6 @@ namespace CoffeeRun.Views
             await _connection.CreateTableAsync<CurrentOrder>();
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
             currentOrderList.ItemsSource = _currentOrder;
-            var currentOrderCount = _currentOrder.Count;
             CheckCount();
         }
 

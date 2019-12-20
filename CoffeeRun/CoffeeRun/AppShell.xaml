@@ -55,10 +55,6 @@
              Title="Order Details">
             <ShellContent ContentTemplate="{DataTemplate local:OrderDetailsPage}"/>
         </Tab>
-        <Tab Route="PastOrders" 
-             Title="Past Orders">
-            <ShellContent ContentTemplate="{DataTemplate local:PastOrderPage}"/>
-        </Tab>
     </FlyoutItem>
     <!--Second-->
     <FlyoutItem Title="Customers" Style="{StaticResource BaseStyle}">
@@ -71,11 +67,6 @@
     <FlyoutItem Title="About" Style="{StaticResource BaseStyle}">
         <Tab Title="About">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}"/>
-        </Tab>
-    </FlyoutItem>
-    <FlyoutItem Title="CoffeeShops" Style="{StaticResource BaseStyle}">
-        <Tab Title="Find Coffee Shop">
-            <ShellContent ContentTemplate="{DataTemplate local:PastOrderPage}"/>
         </Tab>
     </FlyoutItem>
 

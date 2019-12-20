@@ -127,22 +127,19 @@ namespace CoffeeRun.Views
                         };
                         await _connection.InsertAsync(order);
                         _currentOrder.Add(order);
-                        CreateNewOrder.IsEnabled = false;
-
                     }
+                    CreateNewOrder.IsEnabled = false;
                     selectedList.Clear();
                     await Shell.Current.GoToAsync("//CurrentOrderPage");
                 }
                 else
                 {
                     await AddToOrder();
-                    CreateNewOrder.IsEnabled = false;
                 }
             }
             else
             {
                 await AddToOrder();
-                CreateNewOrder.IsEnabled = false;
             }
             
         }
@@ -197,6 +194,7 @@ namespace CoffeeRun.Views
             {
                 await DisplayAlert("Name Exist!", $"{message} Already exist in current order", "Ok");
             }
+            CreateNewOrder.IsEnabled = false;
             await Shell.Current.GoToAsync("//CurrentOrderPage");
         }
 

@@ -20,7 +20,7 @@
 
 
                 <!--Entry-->
-                <StackLayout Grid.Row="1" Margin="20,5,20,0" Padding="10">
+                <StackLayout Grid.Row="1" Margin="20,20,20,0" Padding="10">
                     <Entry x:Name="name"
                            Placeholder="Enter name"
                            TextColor="#351209"
@@ -45,18 +45,23 @@
                             <x:String>X-Large</x:String>
                         </Picker.Items>
                     </Picker>
-
+                </StackLayout>
+                
+                <StackLayout Grid.Row="2" Margin="20" Spacing="20" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="save" Text="Save"
-                        BackgroundColor="#351209"
-                        TextColor="#E0D7C0"
-                        CornerRadius="25"
+                            WidthRequest="150"
+                            FontSize="Large"
+                            BackgroundColor="#351209"
+                            TextColor="#E0D7C0"
+                            CornerRadius="20"
                             Clicked="Save_Clicked"/>
                     <Button x:Name="cancel" Text="Cancel"
-                        BackgroundColor="#351209"
-                        TextColor="#E0D7C0"
-                        CornerRadius="25"
+                            WidthRequest="150"
+                            FontSize="Large"
+                            BackgroundColor="#351209" 
+                            TextColor="#E0D7C0"
+                            CornerRadius="25"
                             Clicked="Cancel_Clicked"/>
-
                 </StackLayout>
             </Grid>
         </ScrollView>
