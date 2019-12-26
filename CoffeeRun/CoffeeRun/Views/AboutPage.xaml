@@ -30,7 +30,11 @@
                 </StackLayout>
             </ScrollView>
             <StackLayout Grid.Row="2" Margin="0,0,0,10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
-                <Label Text="Rate this app." FontAttributes="Bold" Style="{StaticResource labels}"/>
+                <Label Text="Rate this app." FontAttributes="Bold" Style="{StaticResource labels}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ReviewApp_Clicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
 
         </Grid>

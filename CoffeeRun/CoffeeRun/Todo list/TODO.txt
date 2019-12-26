@@ -3,3 +3,10 @@
 - Add location for coffee shops around you
 
 - Need to think about what to do with passed orders page.
+
+Dec 15 2019
+- Currently working on the CurrentOrder page setting up new fram with info on paid and unpaid
+DONE
+
+Dec 19 2019
+- Working on app review click.. currently on about page

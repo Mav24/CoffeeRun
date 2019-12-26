@@ -16,7 +16,7 @@ namespace CoffeeRun.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OrderDetailsPage : ContentPage
     {
-        private SQLiteAsyncConnection _connection;
+        private readonly SQLiteAsyncConnection _connection;
         private ObservableCollection<CurrentOrder> _currentOrder;
         private ObservableCollection<OrderDetails> _orderDetails;
 
@@ -26,12 +26,12 @@ namespace CoffeeRun.Views
         {
             InitializeComponent();
             _connection = MtSql.Current.GetConnectionAsync("coffeerun.db3");
+            
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
             DisplayCurrentOrder();
         }
@@ -92,12 +92,13 @@ namespace CoffeeRun.Views
             OrderDetailsCollectionView.ItemsSource = _orderDetails;
         }
 
-        async void CompleteOrder(object sender, EventArgs e)
+        async void CompleteOrder_Click(object sender, EventArgs e)
         {
+            //await DisplayAlert("Coming Soon!", "Not yet working", "Ok");
             if (await DisplayAlert("Finish order!", "Are you sure you want to finish current order?", "Yes", "No"))
             {
                 await _connection.DeleteAllAsync<CurrentOrder>();
-                _orderDetails.Clear();
+                await Shell.Current.GoToAsync("//CurrentOrderPage");
             }
         }
     }

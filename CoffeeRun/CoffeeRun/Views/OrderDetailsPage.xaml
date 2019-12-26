@@ -218,8 +218,10 @@
                                     <!--#endregion-->
                                     
                                     <StackLayout Grid.Row="3" Grid.ColumnSpan="2">
-                                        <Button CornerRadius="30" Grid.Column="2" Margin="20,0,20,0" Text="Order Complete"
-                                                Clicked="CompleteOrder"/>
+                                        <Button x:Name="CompleteButton" CornerRadius="30" Margin="20,0,20,0" 
+                                                Text="Order Complete"
+                                                IsEnabled="True"
+                                                Clicked="CompleteOrder_Click"/>
                                     </StackLayout>
 
                                 </Grid>

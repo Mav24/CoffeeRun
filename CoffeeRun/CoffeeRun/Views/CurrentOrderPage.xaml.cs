@@ -15,7 +15,7 @@ namespace CoffeeRun.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CurrentOrderPage : ContentPage
     {
-        private SQLiteAsyncConnection _connection;
+        private readonly SQLiteAsyncConnection _connection;
         private ObservableCollection<CurrentOrder> _currentOrder;
         public CurrentOrderPage()
         {
@@ -29,6 +29,7 @@ namespace CoffeeRun.Views
             await _connection.CreateTableAsync<CurrentOrder>();
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
             currentOrderList.ItemsSource = _currentOrder;
+            CheckCount();
         }
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -47,11 +48,13 @@ namespace CoffeeRun.Views
         {
             if (checkbox.IsChecked)
             {
+                CheckCount();
                 customer.Paid = true;
                 await _connection.UpdateAsync(customer);
             }
             else
             {
+                CheckCount();
                 customer.Paid = false;
                 await _connection.UpdateAsync(customer);
             }
@@ -65,6 +68,30 @@ namespace CoffeeRun.Views
         private void CurrentOrderList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             currentOrderList.SelectedItem = null;
+        }
+
+        async void RemoveFromOrder_Clicked(object sender, EventArgs e)
+        {
+            var removeCustomer = (sender as MenuItem).CommandParameter as CurrentOrder;
+            if (await DisplayAlert("Warning!", $"Are you sure you want to remove {removeCustomer.Name} from current order?", "Yes", "No"))
+            {
+                await _connection.DeleteAsync(removeCustomer);
+                _currentOrder.Remove(removeCustomer);
+                CheckCount();
+            }
+        }
+
+        private void CheckCount()
+        {
+            paidChecked.Text = _currentOrder.Count(x => x.Paid).ToString();
+            numberOfCoffees.Text = _currentOrder.Count().ToString();
+        }
+
+        async void EditCustomer_Clicked(object sender, EventArgs e)
+        {
+            bool update = true;
+            var currentOrderCustomer = (sender as MenuItem).CommandParameter as CurrentOrder;
+            await Shell.Current.Navigation.PushModalAsync(new AddPersonPage(currentOrderCustomer, update));
         }
     }
 }

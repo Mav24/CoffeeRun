@@ -119,6 +119,7 @@ namespace CoffeeRun.Views
                     {
                         CurrentOrder order = new CurrentOrder()
                         {
+                            Id = item.Id,
                             Name = item.Name,
                             CoffeeSize = item.CoffeeSize,
                             CoffeeType = item.CoffeeType,
@@ -126,22 +127,19 @@ namespace CoffeeRun.Views
                         };
                         await _connection.InsertAsync(order);
                         _currentOrder.Add(order);
-                        CreateNewOrder.IsEnabled = false;
-
                     }
+                    CreateNewOrder.IsEnabled = false;
                     selectedList.Clear();
                     await Shell.Current.GoToAsync("//CurrentOrderPage");
                 }
                 else
                 {
                     await AddToOrder();
-                    CreateNewOrder.IsEnabled = false;
                 }
             }
             else
             {
                 await AddToOrder();
-                CreateNewOrder.IsEnabled = false;
             }
             
         }
@@ -165,6 +163,7 @@ namespace CoffeeRun.Views
                 {
                     CurrentOrder order = new CurrentOrder()
                     {
+                        Id = item.Id,
                         Name = item.Name,
                         CoffeeSize = item.CoffeeSize,
                         CoffeeType = item.CoffeeType,
@@ -195,6 +194,7 @@ namespace CoffeeRun.Views
             {
                 await DisplayAlert("Name Exist!", $"{message} Already exist in current order", "Ok");
             }
+            CreateNewOrder.IsEnabled = false;
             await Shell.Current.GoToAsync("//CurrentOrderPage");
         }
 
