@@ -232,7 +232,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <!--AdMob-->
-            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155" VerticalOptions="StartAndExpand">
+            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155" VerticalOptions="EndAndExpand">
                 <controls:MTAdView.HeightRequest>
                     <x:OnIdiom>
                         <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
