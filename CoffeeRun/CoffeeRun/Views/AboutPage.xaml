@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              mc:Ignorable="d"
              x:Class="CoffeeRun.Views.AboutPage"
              Title="About">
@@ -10,33 +11,38 @@
         <Grid RowSpacing="0" BackgroundColor="#E0D7C0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="AUTO" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="AUTO" />
                 <RowDefinition Height="AUTO" />
             </Grid.RowDefinitions>
-            <StackLayout Grid.Row="0">
-                <Frame HasShadow="True" CornerRadius="30" Margin="30,0,30,10" BackgroundColor="#E0D7C0">
+            
+            <StackLayout>
+                <Frame HasShadow="True" CornerRadius="20" Margin="10" BackgroundColor="#E8E1D1">
                     <Image Source="aboutimage.jpg" Aspect="AspectFill" HeightRequest="150" />
                 </Frame>
-
             </StackLayout>
-            <ScrollView Grid.Row="1">
-                <StackLayout Spacing="10" VerticalOptions="StartAndExpand" Margin="10,10">
-                    <Label Text="Coffee Run" HorizontalOptions="Center" FontAttributes="Bold" FontSize="30" Style="{StaticResource labels}" />
-                    <Label Text="This app is to make your life a little easier. No more writing down that coffee order for the office" FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}" />
-                    <Label Text="With this app you can:" FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}"/>
-                    <Label Text="- Create and save coffee orders. " FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}"/>
-                    <Label Text="- Create orders from a list of customers." FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}"/>
-                    <Label Text="- See the order details " FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}"/>
-                </StackLayout>
-            </ScrollView>
-            <StackLayout Grid.Row="2" Margin="0,0,0,10" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
-                <Label Text="Rate this app." FontAttributes="Bold" Style="{StaticResource labels}">
+            <StackLayout Grid.Row="1" Padding="10">
+                <Label Text="Coffee Run" HorizontalOptions="Center" FontAttributes="Bold" FontSize="30" Style="{StaticResource labels}" />
+                <Label Text="This app is to make your life a little easier. No more writing down that coffee order for the office" FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}" />
+                <Label Text="With this app you can:" FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}"/>
+                <Label Text="- Create and save coffee orders. " FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}"/>
+                <Label Text="- Create orders from a list of customers." FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}"/>
+                <Label Text="- See the order details " FontAttributes="None" FontSize="20" Style="{StaticResource otherlabels}"/>
+                <Label Text="Rate this app." HorizontalOptions="Center" FontAttributes="Bold" Style="{StaticResource labels}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ReviewApp_Clicked"/>
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-
+            
+            <!--AdMob-->
+            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155">
+                <controls:MTAdView.HeightRequest>
+                    <x:OnIdiom>
+                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    </x:OnIdiom>
+                </controls:MTAdView.HeightRequest>
+            </controls:MTAdView>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -95,11 +95,19 @@ namespace CoffeeRun.Views
         async void CompleteOrder_Click(object sender, EventArgs e)
         {
             //await DisplayAlert("Coming Soon!", "Not yet working", "Ok");
-            if (await DisplayAlert("Finish order!", "Are you sure you want to finish current order?", "Yes", "No"))
+            if (_currentOrder.Count > 0)
             {
-                await _connection.DeleteAllAsync<CurrentOrder>();
-                await Shell.Current.GoToAsync("//CurrentOrderPage");
+                if (await DisplayAlert("Finish order!", "Are you sure you want to finish current order?", "Yes", "No"))
+                {
+                    await _connection.DeleteAllAsync<CurrentOrder>();
+                    await Shell.Current.GoToAsync("//CurrentOrderPage");
+                }
             }
+            else
+            {
+                await DisplayAlert("No Order!", "There is no current order to finish", "Ok");
+            }
+            
         }
     }
 }

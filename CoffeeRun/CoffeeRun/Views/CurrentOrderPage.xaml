@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              mc:Ignorable="d"
              x:Class="CoffeeRun.Views.CurrentOrderPage"
              Title="Current Order">
@@ -16,8 +17,9 @@
                 <RowDefinition Height="AUTO"/>
                 <RowDefinition Height="AUTO"/>
                 <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="AUTO"/>
             </Grid.RowDefinitions>
+            
             <!--Header Image-->
             <Image Source="personpageimage.jpg" Aspect="AspectFill" HeightRequest="150"/>
             <StackLayout Grid.Row="1" BackgroundColor="#351209" HorizontalOptions="FillAndExpand">
@@ -45,12 +47,8 @@
                     </StackLayout>
                 </Grid>
             </Frame>
-            <StackLayout Grid.Row="2" BackgroundColor="#351209" HorizontalOptions="FillAndExpand">
-                <BoxView HeightRequest="10"/>
-            </StackLayout>
             
-            <!--Page Content-->
-            <ListView x:Name="currentOrderList" BackgroundColor="#E0D7C0" Grid.Row="3"
+            <ListView x:Name="currentOrderList" BackgroundColor="#E0D7C0" Grid.Row="2"
                           SeparatorColor="Black"
                           HasUnevenRows="True"
                           CachingStrategy="RecycleElementAndDataTemplate"
@@ -89,7 +87,14 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
+            <!--AdMob-->
+            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155" VerticalOptions="EndAndExpand">
+                <controls:MTAdView.HeightRequest>
+                    <x:OnIdiom>
+                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    </x:OnIdiom>
+                </controls:MTAdView.HeightRequest>
+            </controls:MTAdView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
