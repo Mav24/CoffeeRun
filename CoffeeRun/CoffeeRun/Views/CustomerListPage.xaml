@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              mc:Ignorable="d"
              x:Class="CoffeeRun.Views.CustomerListPage"
              Title="Customer List">
@@ -13,7 +14,16 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#E0D7C0">
+                
+            <StackLayout BackgroundColor="#E0D7C0">
+            <!--AdMob-->
+            <controls:MTAdView PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155">
+                <controls:MTAdView.HeightRequest>
+                    <x:OnIdiom>
+                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    </x:OnIdiom>
+                </controls:MTAdView.HeightRequest>
+            </controls:MTAdView>
             <ListView x:Name="customerslist"
                       SeparatorColor="Black"
                       HasUnevenRows="True"
@@ -53,8 +63,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout Margin="20,5,20,0" Padding="10">
+            <StackLayout>
                 <Button x:Name="CreateNewOrder" Text="Add/Create"
+                        Margin="30,0,30,10"
                         IsEnabled="False"
                         Clicked="CreateNewOrder_Clicked"/>
             </StackLayout>

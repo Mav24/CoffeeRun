@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              mc:Ignorable="d"
              x:Class="CoffeeRun.Views.AddPersonPage"
              Visual="Material"
@@ -14,6 +15,7 @@
                     <RowDefinition Height="AUTO"/>
                     <RowDefinition Height="AUTO"/>
                     <RowDefinition Height="AUTO"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!--Header Image-->
                 <Image Source="coffeecups.jpg" Aspect="AspectFill" HeightRequest="200"/>
@@ -63,6 +65,14 @@
                             CornerRadius="25"
                             Clicked="Cancel_Clicked"/>
                 </StackLayout>
+                <!--AdMob-->
+                <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155" VerticalOptions="EndAndExpand">
+                    <controls:MTAdView.HeightRequest>
+                        <x:OnIdiom>
+                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                        </x:OnIdiom>
+                    </controls:MTAdView.HeightRequest>
+                </controls:MTAdView>
             </Grid>
         </ScrollView>
     </ContentPage.Content>
