@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Gms.Ads;
 
 namespace CoffeeRun.Droid
 {
@@ -19,6 +20,7 @@ namespace CoffeeRun.Droid
 
             base.OnCreate(savedInstanceState);
 
+            MobileAds.Initialize(ApplicationContext, "ca-app-pub-9850737619470713~3668650029");
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
