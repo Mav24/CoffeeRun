@@ -14,3 +14,7 @@ Dec 19 2019
 Dec 25 2019
 - AdMob is now working.. need to update ID's to my Admob ids
 - Set project up on appcenter
+
+Dec 28 2019
+- Working on ads fixing sizing
+

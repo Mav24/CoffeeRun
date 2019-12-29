@@ -17,10 +17,10 @@
                 
             <StackLayout BackgroundColor="#E0D7C0">
             <!--AdMob-->
-            <controls:MTAdView PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155">
+            <controls:MTAdView PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/8926162788" VerticalOptions="FillAndExpand" Margin="0,5,0,0">
                 <controls:MTAdView.HeightRequest>
                     <x:OnIdiom>
-                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                        <x:OnIdiom.Phone>60</x:OnIdiom.Phone>
                     </x:OnIdiom>
                 </controls:MTAdView.HeightRequest>
             </controls:MTAdView>

@@ -26,7 +26,7 @@
                 <BoxView HeightRequest="20"/>
             </StackLayout>
 
-            <Frame TranslationY="155" HasShadow="True" CornerRadius="10" Margin="20,-40,20,0" Padding="0" HeightRequest="50" VerticalOptions="Start" BackgroundColor="#E8E1D1">
+            <Frame TranslationY="100" HasShadow="True" CornerRadius="10" Margin="10,10" Padding="0" HeightRequest="50" VerticalOptions="StartAndExpand" BackgroundColor="#E8E1D1">
                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -35,14 +35,14 @@
                     <StackLayout Orientation="Vertical" Spacing="0" HorizontalOptions="CenterAndExpand">
                         <Label Text="Customers" HorizontalOptions="Center" Style="{StaticResource labels}"/>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label x:Name="numberOfCoffees" Text="" HorizontalOptions="Center" Style="{StaticResource otherlabels}"/>
+                            <Label x:Name="numberOfCoffees" d:Text="0" HorizontalOptions="Center" Style="{StaticResource otherlabels}"/>
                         </StackLayout>
                     </StackLayout>
 
                     <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="0" HorizontalOptions="CenterAndExpand">
                         <Label Text="Paid" HorizontalOptions="Center" Style="{StaticResource labels}"/>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label x:Name="paidChecked" Text="" HorizontalOptions="Center" Style="{StaticResource otherlabels}"/>
+                            <Label x:Name="paidChecked" d:Text="0" HorizontalOptions="Center" Style="{StaticResource otherlabels}"/>
                         </StackLayout>
                     </StackLayout>
                 </Grid>
@@ -88,10 +88,10 @@
                 </ListView.ItemTemplate>
             </ListView>
             <!--AdMob-->
-            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155" VerticalOptions="EndAndExpand">
+            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155" VerticalOptions="FillAndExpand">
                 <controls:MTAdView.HeightRequest>
                     <x:OnIdiom>
-                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                        <x:OnIdiom.Phone>60</x:OnIdiom.Phone>
                     </x:OnIdiom>
                 </controls:MTAdView.HeightRequest>
             </controls:MTAdView>
