@@ -15,7 +15,7 @@
                     <RowDefinition Height="AUTO"/>
                     <RowDefinition Height="AUTO"/>
                     <RowDefinition Height="AUTO"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="AUTO"/>
                 </Grid.RowDefinitions>
                 <!--Header Image-->
                 <Image Source="coffeecups.jpg" Aspect="AspectFill" HeightRequest="200"/>
@@ -48,15 +48,8 @@
                         </Picker.Items>
                     </Picker>
                 </StackLayout>
-                
+
                 <StackLayout Grid.Row="2" Margin="20" Spacing="20" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="save" Text="Save"
-                            WidthRequest="150"
-                            FontSize="Large"
-                            BackgroundColor="#351209"
-                            TextColor="#E0D7C0"
-                            CornerRadius="20"
-                            Clicked="Save_Clicked"/>
                     <Button x:Name="cancel" Text="Cancel"
                             WidthRequest="150"
                             FontSize="Large"
@@ -64,12 +57,20 @@
                             TextColor="#E0D7C0"
                             CornerRadius="25"
                             Clicked="Cancel_Clicked"/>
+                    <Button x:Name="save" Text="Save"
+                            WidthRequest="150"
+                            FontSize="Large"
+                            BackgroundColor="#351209"
+                            TextColor="#E0D7C0"
+                            CornerRadius="20"
+                            Clicked="Save_Clicked"/>
+                    
                 </StackLayout>
                 <!--AdMob-->
-                <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/9878835155" VerticalOptions="EndAndExpand">
+                <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/8186165878" VerticalOptions="FillAndExpand">
                     <controls:MTAdView.HeightRequest>
                         <x:OnIdiom>
-                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                            <x:OnIdiom.Phone>60</x:OnIdiom.Phone>
                         </x:OnIdiom>
                     </controls:MTAdView.HeightRequest>
                 </controls:MTAdView>

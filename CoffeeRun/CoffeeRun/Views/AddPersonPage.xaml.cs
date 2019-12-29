@@ -84,82 +84,93 @@ namespace CoffeeRun.Views
         {
             if (update)
             {
-                try
+                await UpdateCustomer();
+
+            }
+            else
+            {
+                await CreateNewCustomer();
+            }
+        }
+
+        private async Task CreateNewCustomer()
+        {
+            try
+            {
+
+                if (string.IsNullOrWhiteSpace(name.Text) || coffeesize.SelectedIndex == -1 || coffeetype.SelectedIndex == -1)
                 {
-                    Customer updateCustomer = new Customer()
+                    await DisplayAlert("Error", "All fields need to be filled out", "OK");
+                }
+                else
+                {
+
+                    Customer newCustomer = new Customer()
                     {
-                        Id = customer.Id,
                         Name = name.Text,
                         CoffeeSize = coffeesize.SelectedItem.ToString(),
                         CoffeeType = coffeetype.SelectedItem.ToString(),
                         AddToOrderChecked = false
                     };
-                    if (string.IsNullOrWhiteSpace(name.Text) || coffeesize.SelectedIndex == -1 || coffeetype.SelectedIndex == -1)
-                    {
-                        await DisplayAlert("Error", "All fields need to be filled out", "OK");
-                    }
-                    
-                    else
-                    {
-                        if (_currentOrder.Count > 0)
-                        {
-                            CurrentOrder updateCurrentOrder = new CurrentOrder()
-                            {
-                                Id = updateCustomer.Id,
-                                Name = updateCustomer.Name,
-                                CoffeeSize = updateCustomer.CoffeeSize,
-                                CoffeeType = updateCustomer.CoffeeType,
-                                Paid = currentOrder.Paid
-                            };
-                            foreach (var item in _currentOrder)
-                            {
-                                if (item.Name == updateCustomer.Name)
-                                    await _connection.UpdateAsync(updateCurrentOrder);
-
-
-                            }
-                        }
-                        await _connection.UpdateAsync(updateCustomer);
-                        await DisplayAlert("Customer Updated", $"Customer {updateCustomer.Name} updated", "OK");
-                        await Shell.Current.Navigation.PopModalAsync();
-                    }
+                    await _connection.InsertAsync(newCustomer);
+                    _customers.Add(newCustomer);
+                    await DisplayAlert("Customer Added", $"Customer {newCustomer.Name} has been added", "OK");
+                    await Shell.Current.Navigation.PopModalAsync();
                 }
-                catch (Exception)
-                {
-                    await DisplayAlert("Can't Update!", $"Sorry {name.Text} already exist in customer list", "OK");
-                }
-                
             }
-            else
+            catch (Exception)
             {
-                try
+                await DisplayAlert("Error", $"Customer {name.Text} already exist in customer list", "OK");
+
+            }
+        }
+
+        private async Task UpdateCustomer()
+        {
+            try
+            {
+                Customer updateCustomer = new Customer()
                 {
+                    Id = customer.Id,
+                    Name = name.Text,
+                    CoffeeSize = coffeesize.SelectedItem.ToString(),
+                    CoffeeType = coffeetype.SelectedItem.ToString(),
+                    AddToOrderChecked = false
+                };
+                if (string.IsNullOrWhiteSpace(name.Text) || coffeesize.SelectedIndex == -1 || coffeetype.SelectedIndex == -1)
+                {
+                    await DisplayAlert("Error", "All fields need to be filled out", "OK");
+                }
 
-                    if (string.IsNullOrWhiteSpace(name.Text) || coffeesize.SelectedIndex == -1 || coffeetype.SelectedIndex == -1)
+                else
+                {
+                    if (_currentOrder.Count > 0)
                     {
-                        await DisplayAlert("Error", "All fields need to be filled out", "OK");
-                    }
-                    else
-                    {
-
-                        Customer newCustomer = new Customer()
+                        CurrentOrder updateCurrentOrder = new CurrentOrder()
                         {
-                            Name = name.Text,
-                            CoffeeSize = coffeesize.SelectedItem.ToString(),
-                            CoffeeType = coffeetype.SelectedItem.ToString(),
-                            AddToOrderChecked = false
+                            Id = customer.Id,
+                            Name = updateCustomer.Name,
+                            CoffeeSize = updateCustomer.CoffeeSize,
+                            CoffeeType = updateCustomer.CoffeeType,
+                            //Paid = currentOrder.Paid
                         };
-                        await _connection.InsertAsync(newCustomer);
-                        _customers.Add(newCustomer);
-                        await DisplayAlert("Customer Added", $"Customer {newCustomer.Name} has been added", "OK");
-                        await Shell.Current.Navigation.PopModalAsync();
-                    }
-                }
-                catch (Exception)
-                {
-                    await DisplayAlert("Error", $"Customer {name.Text} already exist in customer list", "OK");
+                        foreach (var item in _currentOrder)
+                        {
+                            if (item.Name == updateCustomer.Name)
+                                await _connection.UpdateAsync(updateCurrentOrder);
 
+
+                        }
+                    }
+                    await _connection.UpdateAsync(updateCustomer);
+                    await DisplayAlert("Customer Updated", $"Customer {updateCustomer.Name} updated", "OK");
+                    await Shell.Current.Navigation.PopModalAsync();
                 }
+            }
+            catch (Exception)
+            {
+                await DisplayAlert("Can't Update!", $"Sorry {name.Text} already exist in customer list", "OK");
+
             }
         }
 
