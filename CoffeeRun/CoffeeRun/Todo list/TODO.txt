@@ -18,3 +18,10 @@ Dec 25 2019
 Dec 28 2019
 - Working on ads fixing sizing
 
+Dec 29 2019
+- Uploaded to store (Had to leave it on debug and just uncheck use shared runtime and set linking to SDK assemblies only)
+
+
+Jan 5 2020
+- Updated NuGet packages and changed all Ads to have the same main Ad Id (Not uploaded to play store)
+
