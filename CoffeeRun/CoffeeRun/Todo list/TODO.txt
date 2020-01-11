@@ -25,3 +25,9 @@ Dec 29 2019
 Jan 5 2020
 - Updated NuGet packages and changed all Ads to have the same main Ad Id (Not uploaded to play store)
 
+Jan 8 2020
+- Updated the ad ids to a new id. Hope this fixes the ads not showing up issue. (Uploaded to the play store)
+
+Jan 11 2020
+- Fixed button so it now wont be grayed out until you selected a customer. Now you will get a pop up message if no customers are selected
+
