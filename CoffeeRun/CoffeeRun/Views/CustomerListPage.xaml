@@ -17,7 +17,7 @@
                 
             <StackLayout BackgroundColor="#E0D7C0">
             <!--AdMob-->
-            <controls:MTAdView PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/4593989937" VerticalOptions="FillAndExpand" Margin="0,5,0,0">
+            <controls:MTAdView PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/6241933317" VerticalOptions="FillAndExpand" Margin="0,5,0,0">
                 <controls:MTAdView.HeightRequest>
                     <x:OnIdiom>
                         <x:OnIdiom.Phone>60</x:OnIdiom.Phone>
@@ -66,7 +66,6 @@
             <StackLayout>
                 <Button x:Name="CreateNewOrder" Text="Add/Create"
                         Margin="30,0,30,10"
-                        IsEnabled="False"
                         Clicked="CreateNewOrder_Clicked"/>
             </StackLayout>
         </StackLayout>
