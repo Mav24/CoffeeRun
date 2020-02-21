@@ -33,7 +33,14 @@ namespace CoffeeRun.Views
         {
             base.OnAppearing();
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
+            CrossMTAdmob.Current.LoadInterstitial(GetAdIds.GetInterstitialIds());
             DisplayCurrentOrder();
+            ShowAdMob();
+        }
+
+        private void ShowAdMob()
+        {
+            CrossMTAdmob.Current.ShowInterstitial();
         }
 
         private void DisplayCurrentOrder()

@@ -31,3 +31,11 @@ Jan 8 2020
 Jan 11 2020
 - Fixed button so it now wont be grayed out until you selected a customer. Now you will get a pop up message if no customers are selected
 
+Feb 10 2020
+- Added new ad ids and upload to google play
+
+Feb 19 2020
+- Added new Ad Id's and full page ads
+
+Feb 20 2020
+- Upload to google play
