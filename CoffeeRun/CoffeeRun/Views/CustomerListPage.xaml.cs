@@ -37,6 +37,14 @@ namespace CoffeeRun.Views
             // Gets Table from Current order
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
             selectedList = new ObservableCollection<Customer>();
+            CrossMTAdmob.Current.LoadInterstitial(GetAdIds.GetInterstitialIds());
+            ShowAdMob();
+
+        }
+
+        private void ShowAdMob()
+        {
+            CrossMTAdmob.Current.ShowInterstitial();
         }
 
         private void AddCustomer_Clicked(object sender, EventArgs e)
