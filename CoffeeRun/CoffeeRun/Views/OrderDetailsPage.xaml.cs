@@ -33,9 +33,9 @@ namespace CoffeeRun.Views
         {
             base.OnAppearing();
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
-            CrossMTAdmob.Current.LoadInterstitial(GetAdIds.GetInterstitialIds());
+            //CrossMTAdmob.Current.LoadInterstitial(GetAdIds.GetInterstitialIds()); ***Disabled for now.***
             DisplayCurrentOrder();
-            ShowAdMob();
+            //ShowAdMob();
         }
 
         private void ShowAdMob()

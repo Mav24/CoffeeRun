@@ -39,3 +39,7 @@ Feb 19 2020
 
 Feb 20 2020
 - Upload to google play
+
+Feb 21 2020
+- Fixed ad issue with admob not allowing so many ads ( I think this was the issue that i had full page ads etc.. we will see if this was the issue)
+- Uploaded to google play
