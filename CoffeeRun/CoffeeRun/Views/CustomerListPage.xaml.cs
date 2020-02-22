@@ -37,8 +37,11 @@ namespace CoffeeRun.Views
             // Gets Table from Current order
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
             selectedList = new ObservableCollection<Customer>();
-            CrossMTAdmob.Current.LoadInterstitial(GetAdIds.GetInterstitialIds());
-            ShowAdMob();
+
+            #region ** This is for full page ads. I have this disabled for now.
+            //CrossMTAdmob.Current.LoadInterstitial(GetAdIds.GetInterstitialIds());
+            //ShowAdMob();
+            #endregion
 
         }
 
