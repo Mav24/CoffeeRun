@@ -5,7 +5,7 @@
 - Need to think about what to do with passed orders page.
 
 Dec 15 2019
-- Currently working on the CurrentOrder page setting up new fram with info on paid and unpaid
+- Currently working on the CurrentOrder page setting up new form with info on paid and unpaid
 DONE
 
 Dec 19 2019
@@ -43,3 +43,5 @@ Feb 20 2020
 Feb 21 2020
 - Fixed ad issue with admob not allowing so many ads ( I think this was the issue that i had full page ads etc.. we will see if this was the issue)
 - Uploaded to google play
+
+*** Working on having a class that will have all the ad id's in it... 

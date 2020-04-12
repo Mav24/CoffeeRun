@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace CoffeeRun.Views
             InitializeComponent();
             _connection = MtSql.Current.GetConnectionAsync("coffeerun.db3");
         }
-        
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -92,6 +93,11 @@ namespace CoffeeRun.Views
             bool update = true;
             var currentOrderCustomer = (sender as MenuItem).CommandParameter as CurrentOrder;
             await Shell.Current.Navigation.PushModalAsync(new AddPersonPage(currentOrderCustomer, update));
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Stream myDatabaseStream = MtSql.Current.GetDatabaseAsStream("coffeerun.db3");
         }
     }
 }

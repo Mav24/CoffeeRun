@@ -10,6 +10,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add/Create Order"
                      Clicked="AddOrCreateOrder"/>
+        <ToolbarItem Text="BackUp"
+                     Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid RowSpacing="0" VerticalOptions="FillAndExpand" BackgroundColor="#E0D7C0">
