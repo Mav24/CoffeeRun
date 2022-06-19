@@ -58,37 +58,37 @@ namespace CoffeeRun.Views
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             #region Old method for adding customer to selectedlist (keep for referance)
-            //selectedList = new ObservableCollection<Customer>();
+            selectedList = new ObservableCollection<Customer>();
 
-            //for (int i = 0; i < _customers.Count; i++)
-            //{
-            //    Customer item = _customers[i];
-            //    if (item.AddToOrderChecked)
-            //    {
-            //        selectedList.Add(item);
-            //    }
-            //}
-            //if (selectedList.Count > 0)
-            //{
-            //    CreateNewOrder.IsEnabled = true;
-            //}
-            //else
-            //{
-            //    CreateNewOrder.IsEnabled = false;
-            //} 
+            for (int i = 0; i < _customers.Count; i++)
+            {
+                Customer item = _customers[i];
+                if (item.AddToOrderChecked)
+                {
+                    selectedList.Add(item);
+                }
+            }
+            if (selectedList.Count > 0)
+            {
+                CreateNewOrder.IsEnabled = true;
+            }
+            else
+            {
+                CreateNewOrder.IsEnabled = false;
+            }
             #endregion
 
-            var checkBox = (CheckBox)sender;
-            Customer customer = checkBox.BindingContext as Customer;
+            //var checkBox = (CheckBox)sender;
+            //Customer customer = checkBox.BindingContext as Customer;
 
-            if (customer.AddToOrderChecked)
-            {
-                selectedList.Add(customer);
-            }
-            else if (customer.AddToOrderChecked == false)
-            {
-                selectedList.Remove(customer);
-            }
+            //if (customer.AddToOrderChecked)
+            //{
+            //    selectedList.Add(customer);
+            //}
+            //else if (customer.AddToOrderChecked == false)
+            //{
+            //    selectedList.Remove(customer);
+            //}
         }
 
         async void DeleteCustomer(object sender, EventArgs e)

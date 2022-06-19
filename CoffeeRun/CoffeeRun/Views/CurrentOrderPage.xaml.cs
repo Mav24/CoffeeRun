@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace CoffeeRun.Views
             InitializeComponent();
             _connection = MtSql.Current.GetConnectionAsync("coffeerun.db3");
         }
-        
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
