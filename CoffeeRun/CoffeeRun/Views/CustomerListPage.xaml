@@ -20,7 +20,7 @@
             <controls:MTAdView PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/3773430494" VerticalOptions="FillAndExpand" Margin="0,5,0,0">
                 <controls:MTAdView.HeightRequest>
                     <x:OnIdiom>
-                        <x:OnIdiom.Phone>60</x:OnIdiom.Phone>
+                        <x:OnIdiom.Phone>90</x:OnIdiom.Phone>
                     </x:OnIdiom>
                 </controls:MTAdView.HeightRequest>
             </controls:MTAdView>
