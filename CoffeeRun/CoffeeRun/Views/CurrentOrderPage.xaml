@@ -91,7 +91,7 @@
             <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/6241933317" VerticalOptions="FillAndExpand">
                 <controls:MTAdView.HeightRequest>
                     <x:OnIdiom>
-                        <x:OnIdiom.Phone>60</x:OnIdiom.Phone>
+                        <x:OnIdiom.Phone>90</x:OnIdiom.Phone>
                     </x:OnIdiom>
                 </controls:MTAdView.HeightRequest>
             </controls:MTAdView>
