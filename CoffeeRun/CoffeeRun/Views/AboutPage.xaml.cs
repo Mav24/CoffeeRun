@@ -21,7 +21,14 @@ namespace CoffeeRun.Views
 
         private void ReviewApp_Clicked(object sender, EventArgs e)
         {
-            Launcher.OpenAsync(new Uri($"market://details?id={AppInfo.PackageName}"));
+            try
+            {
+                Launcher.OpenAsync(new Uri($"market://details?id={AppInfo.PackageName}"));
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Error!", "Something went wrong. Please try again!", "Ok");
+            }
         }
     }
 }

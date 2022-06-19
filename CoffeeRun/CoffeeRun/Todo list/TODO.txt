@@ -5,7 +5,7 @@
 - Need to think about what to do with passed orders page.
 
 Dec 15 2019
-- Currently working on the CurrentOrder page setting up new fram with info on paid and unpaid
+- Currently working on the CurrentOrder page setting up new form with info on paid and unpaid
 DONE
 
 Dec 19 2019
@@ -25,3 +25,24 @@ Dec 29 2019
 Jan 5 2020
 - Updated NuGet packages and changed all Ads to have the same main Ad Id (Not uploaded to play store)
 
+Jan 8 2020
+- Updated the ad ids to a new id. Hope this fixes the ads not showing up issue. (Uploaded to the play store)
+
+Jan 11 2020
+- Fixed button so it now wont be grayed out until you selected a customer. Now you will get a pop up message if no customers are selected
+
+Feb 10 2020
+- Added new ad ids and upload to google play
+
+Feb 19 2020
+- Added new Ad Id's and full page ads
+
+Feb 20 2020
+- Upload to google play
+
+Feb 21 2020
+- Fixed ad issue with admob not allowing so many ads ( I think this was the issue that i had full page ads etc.. we will see if this was the issue)
+- Uploaded to google play
+
+June 18, 2022
+- Look in to creating picker from a database list

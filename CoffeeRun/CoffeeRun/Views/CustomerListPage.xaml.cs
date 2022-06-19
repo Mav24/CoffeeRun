@@ -36,7 +36,18 @@ namespace CoffeeRun.Views
 
             // Gets Table from Current order
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
-            
+            selectedList = new ObservableCollection<Customer>();
+
+            #region ** This is for full page ads. I have this disabled for now.
+            //CrossMTAdmob.Current.LoadInterstitial(GetAdIds.GetInterstitialIds());
+            //ShowAdMob();
+            #endregion
+
+        }
+
+        private void ShowAdMob()
+        {
+            CrossMTAdmob.Current.ShowInterstitial();
         }
 
         private void AddCustomer_Clicked(object sender, EventArgs e)
@@ -46,6 +57,7 @@ namespace CoffeeRun.Views
 
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
+            #region Old method for adding customer to selectedlist (keep for referance)
             selectedList = new ObservableCollection<Customer>();
 
             for (int i = 0; i < _customers.Count; i++)
@@ -64,8 +76,8 @@ namespace CoffeeRun.Views
             {
                 CreateNewOrder.IsEnabled = false;
             }
+            #endregion
 
-            #region Something I'm working on
             //var checkBox = (CheckBox)sender;
             //Customer customer = checkBox.BindingContext as Customer;
 
@@ -77,15 +89,6 @@ namespace CoffeeRun.Views
             //{
             //    selectedList.Remove(customer);
             //}
-            //if (selectedList.Count > 0)
-            //{
-            //    CreateNewOrder.IsEnabled = true;
-            //}
-            //else
-            //{
-            //    CreateNewOrder.IsEnabled = false;
-            //}
-            #endregion
         }
 
         async void DeleteCustomer(object sender, EventArgs e)
@@ -108,40 +111,45 @@ namespace CoffeeRun.Views
 
         
         async void CreateNewOrder_Clicked(object sender, EventArgs e)
-        { 
+        {
             
-            if (_currentOrder.Count > 0)
+            if (selectedList.Count == 0)
             {
-                if (await DisplayAlert("Warning!", "Do you want to add to the current order or create new order?", "New", "Add"))
+                await DisplayAlert("Nothing Selected", "You need to select a customer to create or add to an order!", "Ok");
+            }
+            else
+            {
+                if (_currentOrder.Count > 0)
                 {
-                    await _connection.DeleteAllAsync<CurrentOrder>();
-                    foreach (var item in selectedList)
+                    if (await DisplayAlert("Warning!", "Do you want to add to the current order or create new order?", "New", "Add"))
                     {
-                        CurrentOrder order = new CurrentOrder()
+                        await _connection.DeleteAllAsync<CurrentOrder>();
+                        foreach (var item in selectedList)
                         {
-                            Id = item.Id,
-                            Name = item.Name,
-                            CoffeeSize = item.CoffeeSize,
-                            CoffeeType = item.CoffeeType,
-                            Paid = false
-                        };
-                        await _connection.InsertAsync(order);
-                        _currentOrder.Add(order);
+                            CurrentOrder order = new CurrentOrder()
+                            {
+                                Id = item.Id,
+                                Name = item.Name,
+                                CoffeeSize = item.CoffeeSize,
+                                CoffeeType = item.CoffeeType,
+                                Paid = false
+                            };
+                            await _connection.InsertAsync(order);
+                            _currentOrder.Add(order);
+                        }
+                        selectedList.Clear();
+                        await Shell.Current.GoToAsync("//CurrentOrderPage");
                     }
-                    CreateNewOrder.IsEnabled = false;
-                    selectedList.Clear();
-                    await Shell.Current.GoToAsync("//CurrentOrderPage");
+                    else
+                    {
+                        await AddToOrder();
+                    }
                 }
                 else
                 {
                     await AddToOrder();
                 }
             }
-            else
-            {
-                await AddToOrder();
-            }
-            
         }
 
         private async Task AddToOrder()
@@ -194,7 +202,6 @@ namespace CoffeeRun.Views
             {
                 await DisplayAlert("Name Exist!", $"{message} Already exist in current order", "Ok");
             }
-            CreateNewOrder.IsEnabled = false;
             await Shell.Current.GoToAsync("//CurrentOrderPage");
         }
 

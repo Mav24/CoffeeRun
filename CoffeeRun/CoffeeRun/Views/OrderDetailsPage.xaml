@@ -232,10 +232,10 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <!--AdMob-->
-            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/4593989937" Margin="0,0,0,5">
+            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/5706261594" Margin="0,0,0,5">
                 <controls:MTAdView.HeightRequest>
                     <x:OnIdiom>
-                        <x:OnIdiom.Phone>60</x:OnIdiom.Phone>
+                        <x:OnIdiom.Phone>90</x:OnIdiom.Phone>
                     </x:OnIdiom>
                 </controls:MTAdView.HeightRequest>
             </controls:MTAdView>
