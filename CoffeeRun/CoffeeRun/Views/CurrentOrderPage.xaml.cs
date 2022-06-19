@@ -94,10 +94,5 @@ namespace CoffeeRun.Views
             var currentOrderCustomer = (sender as MenuItem).CommandParameter as CurrentOrder;
             await Shell.Current.Navigation.PushModalAsync(new AddPersonPage(currentOrderCustomer, update));
         }
-
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            Stream myDatabaseStream = MtSql.Current.GetDatabaseAsStream("coffeerun.db3");
-        }
     }
 }

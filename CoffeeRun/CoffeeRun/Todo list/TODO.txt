@@ -44,4 +44,5 @@ Feb 21 2020
 - Fixed ad issue with admob not allowing so many ads ( I think this was the issue that i had full page ads etc.. we will see if this was the issue)
 - Uploaded to google play
 
-*** Working on having a class that will have all the ad id's in it... 
+June 18, 2022
+- Look in to creating picker from a database list
