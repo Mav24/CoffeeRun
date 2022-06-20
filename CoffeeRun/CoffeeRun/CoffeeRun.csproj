@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	  <AndroidUseApkSigner>True</AndroidUseApkSigner>
+	  <AndroidApkSignerAdditionalArguments>--v2-signing-enabled true</AndroidApkSignerAdditionalArguments>
   </PropertyGroup>
 
   <ItemGroup>
