@@ -29,14 +29,18 @@
                            Keyboard="Text"/>
                     <Picker x:Name="coffeetype" Title="Select Coffee"
                             TextColor="#351209"
-                            VerticalOptions="CenterAndExpand">
+                            VerticalOptions="CenterAndExpand"
+                            SelectedIndexChanged="coffeetype_SelectedIndexChanged">
                         <Picker.Items>
                             <x:String>Black</x:String>
-                            <x:String>2 Cream</x:String>
-                            <x:String>Double Double</x:String>
                             <x:String>Regular</x:String>
+                            <x:String>Dbl Dbl</x:String>
+                            <x:String>Trpl Trpl</x:String>
+                            <x:String>Custom</x:String>
                         </Picker.Items>
                     </Picker>
+                    <Entry x:Name="customCoffeeType" Placeholder="Enter Coffee Type"
+                           IsVisible="false"/>
                     <Picker x:Name="coffeesize" Title="Select Size"
                             TextColor="#351209"
                             VerticalOptions="CenterAndExpand">

@@ -37,8 +37,8 @@
                                     <StackLayout VerticalOptions="Center" HorizontalOptions="StartAndExpand">
                                         <Label Text="{Binding Name}" Style="{StaticResource labels}"/>
                                         <StackLayout Orientation="Horizontal" Spacing="20">
-                                            <Label Text="{Binding CoffeeType, StringFormat='Coffee: {0}'}" Style="{StaticResource otherlabels}"/>
-                                            <Label Text="{Binding CoffeeSize, StringFormat='Size: {0}'}" Style="{StaticResource otherlabels}"/>
+                                            <Label Text="{Binding CoffeeSize, StringFormat='{0}:'}" Style="{StaticResource otherlabels}"/>
+                                            <Label Text="{Binding CoffeeType}" Style="{StaticResource otherlabels}"/>
                                         </StackLayout>
                                     </StackLayout>
                                     <StackLayout VerticalOptions="Center">

@@ -29,6 +29,7 @@ namespace CoffeeRun.Views
             base.OnAppearing();
             await _connection.CreateTableAsync<CurrentOrder>();
             _currentOrder = new ObservableCollection<CurrentOrder>((await _connection.Table<CurrentOrder>().ToListAsync()));
+            //collectionViewCurrentOrderList.ItemsSource = _currentOrder;
             currentOrderList.ItemsSource = _currentOrder;
             CheckCount();
         }

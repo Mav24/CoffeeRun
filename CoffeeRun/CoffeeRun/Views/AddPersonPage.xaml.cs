@@ -20,6 +20,7 @@ namespace CoffeeRun.Views
         private SQLiteAsyncConnection _connection;
         private ObservableCollection<Customer> _customers;
         private ObservableCollection<CurrentOrder> _currentOrder;
+        private ObservableCollection<CoffeeTypes> _coffeeTypes;
         private readonly Customer customer;
         private readonly bool update = false;
         private readonly CurrentOrder currentOrder;
@@ -76,8 +77,10 @@ namespace CoffeeRun.Views
         {
             base.OnAppearing();
             await _connection.CreateTableAsync<Customer>();
+            await _connection.CreateTableAsync<CoffeeTypes>();
             _customers = new ObservableCollection<Customer>((await _connection.Table<Customer>().ToListAsync()));
             _currentOrder = new ObservableCollection<CurrentOrder>(await _connection.Table<CurrentOrder>().ToListAsync());
+            _coffeeTypes = new ObservableCollection<CoffeeTypes>(await _connection.Table<CoffeeTypes>().ToListAsync());
         }
 
         async void Save_Clicked(object sender, EventArgs e)
@@ -98,6 +101,7 @@ namespace CoffeeRun.Views
             try
             {
 
+                //CoffeeTypes coffeeTypes = new CoffeeTypes() { WhatDoYouTakeInYourCoffee = customCoffeeType.Text };
                 if (string.IsNullOrWhiteSpace(name.Text) || coffeesize.SelectedIndex == -1 || coffeetype.SelectedIndex == -1)
                 {
                     await DisplayAlert("Error", "All fields need to be filled out", "OK");
@@ -110,8 +114,17 @@ namespace CoffeeRun.Views
                         Name = name.Text,
                         CoffeeSize = coffeesize.SelectedItem.ToString(),
                         CoffeeType = coffeetype.SelectedItem.ToString(),
+                        Custom = false,
                         AddToOrderChecked = false
                     };
+                    if(coffeetype.SelectedItem.ToString() == "Custom")
+                    {
+                        newCustomer.CoffeeType = customCoffeeType.Text;
+                        newCustomer.Custom = true;
+                    }
+                    //await _connection.InsertAsync(coffeeTypes);
+                    //_coffeeTypes.Add(coffeeTypes);
+
                     await _connection.InsertAsync(newCustomer);
                     _customers.Add(newCustomer);
                     await DisplayAlert("Customer Added", $"Customer {newCustomer.Name} has been added", "OK");
@@ -135,6 +148,7 @@ namespace CoffeeRun.Views
                     Name = name.Text,
                     CoffeeSize = coffeesize.SelectedItem.ToString(),
                     CoffeeType = coffeetype.SelectedItem.ToString(),
+                    Custom = false,
                     AddToOrderChecked = false
                 };
                 if (string.IsNullOrWhiteSpace(name.Text) || coffeesize.SelectedIndex == -1 || coffeetype.SelectedIndex == -1)
@@ -152,6 +166,7 @@ namespace CoffeeRun.Views
                             Name = updateCustomer.Name,
                             CoffeeSize = updateCustomer.CoffeeSize,
                             CoffeeType = updateCustomer.CoffeeType,
+                            Custom = updateCustomer.Custom,
                             //Paid = currentOrder.Paid
                         };
                         foreach (var item in _currentOrder)
@@ -177,6 +192,19 @@ namespace CoffeeRun.Views
         private void Cancel_Clicked(object sender, EventArgs e)
         {
             Shell.Current.Navigation.PopModalAsync();
+        }
+
+        private void coffeetype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string isCustom = coffeetype.SelectedItem.ToString();
+            if(isCustom == "Custom")
+            {
+                customCoffeeType.IsVisible = true;
+            }
+            else
+            {
+                customCoffeeType.IsVisible = false;
+            }
         }
     }
 }

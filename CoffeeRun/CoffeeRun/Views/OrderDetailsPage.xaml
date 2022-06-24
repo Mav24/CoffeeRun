@@ -43,7 +43,7 @@
                                     <Label Text="Small" Style="{StaticResource labels}"/>
                                     <!--Row Devider-->
                                     <BoxView BackgroundColor="#351209" HeightRequest="1" WidthRequest="0"/>
-                                    <Label Text="{Binding SmallBlack, StringFormat='Black: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding SmallBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
                                                              Binding="{Binding SmallBlack}"
@@ -52,16 +52,16 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-                                    <Label Text="{Binding Small2Cream, StringFormat='2 Cream: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding SmallRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
-                                                             Binding="{Binding Small2Cream}"
+                                                             Binding="{Binding SmallRegular}"
                                                              Value="0">
                                                 <Setter Property="IsVisible" Value="False"/>
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-                                    <Label Text="{Binding SmallDD, StringFormat='Double Double: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding SmallDD, StringFormat='{0} : Dbl Dbl'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
                                                              Binding="{Binding SmallDD}"
@@ -70,10 +70,10 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-                                    <Label Text="{Binding SmallRegular, StringFormat='Regular: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding SmallTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
-                                                             Binding="{Binding SmallRegular}"
+                                                             Binding="{Binding SmallTrplTrpl}"
                                                              Value="0">
                                                 <Setter Property="IsVisible" Value="False"/>
                                             </DataTrigger>
@@ -87,7 +87,7 @@
                                     <Label Text="Medium" Style="{StaticResource labels}"/>
                                     <!--Row Devider-->
                                     <BoxView BackgroundColor="#351209" HeightRequest="1"/>
-                                    <Label Text="{Binding MediumBlack, StringFormat='Black: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding MediumBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
                                                              Binding="{Binding MediumBlack}"
@@ -96,17 +96,16 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-
-                                    <Label Text="{Binding Medium2Cream, StringFormat='2 Cream: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding MediumRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
-                                                             Binding="{Binding Medium2Cream}"
+                                                             Binding="{Binding MediumRegular}"
                                                              Value="0">
                                                 <Setter Property="IsVisible" Value="False"/>
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-                                    <Label Text="{Binding MediumDD, StringFormat='Double Double: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding MediumDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
                                                              Binding="{Binding MediumDD}"
@@ -115,10 +114,10 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-                                    <Label Text="{Binding MediumRegular, StringFormat='Regular: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding MediumTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
-                                                             Binding="{Binding MediumRegular}"
+                                                             Binding="{Binding MediumTrplTrpl}"
                                                              Value="0">
                                                 <Setter Property="IsVisible" Value="False"/>
                                             </DataTrigger>
@@ -128,11 +127,11 @@
                                 <!--#endregion-->
 
                                 <!--#region Row Large-->
-                                <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="0,0,0,10">
+                                <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5,0,0,5">
                                     <Label Text="Large" Style="{StaticResource labels }"/>
                                     <!--Row Devider-->
                                     <BoxView BackgroundColor="#351209" HeightRequest="1"/>
-                                    <Label Text="{Binding LargeBlack, StringFormat='Black: {0}:'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding LargeBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
                                                              Binding="{Binding LargeBlack}"
@@ -141,17 +140,16 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-
-                                    <Label Text="{Binding Large2Cream, StringFormat='2 Cream: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding LargeRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
-                                                             Binding="{Binding Large2Cream}"
+                                                             Binding="{Binding LargeRegular}"
                                                              Value="0">
                                                 <Setter Property="IsVisible" Value="False"/>
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-                                    <Label Text="{Binding LargeDD, StringFormat='Double Double: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding LargeDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
                                                              Binding="{Binding LargeDD}"
@@ -160,10 +158,10 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-                                    <Label Text="{Binding LargeRegular, StringFormat='Regular: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding LargeTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
-                                                             Binding="{Binding LargeRegular}"
+                                                             Binding="{Binding LargeTrplTrpl}"
                                                              Value="0">
                                                 <Setter Property="IsVisible" Value="False"/>
                                             </DataTrigger>
@@ -177,7 +175,7 @@
                                     <Label Text="X-Large" Style="{StaticResource labels}"/>
                                     <!--Row Devider-->
                                     <BoxView BackgroundColor="#351209" HeightRequest="1"/>
-                                    <Label Text="{Binding XLargeBlack, StringFormat='Black: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding XLargeBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
                                                              Binding="{Binding XLargeBlack}"
@@ -186,26 +184,7 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-
-                                    <Label Text="{Binding XLarge2Cream, StringFormat='2 Cream: {0}'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
-                                                             Binding="{Binding XLarge2Cream}"
-                                                             Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding XLargeDD, StringFormat='Double Double: {0}'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
-                                                             Binding="{Binding XLargeDD}"
-                                                             Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding XLargeRegular, StringFormat='Regular: {0}'}" Style="{StaticResource otherlabels}">
+                                    <Label Text="{Binding XLargeRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
                                         <Label.Triggers>
                                             <DataTrigger TargetType="Label"
                                                              Binding="{Binding XLargeRegular}"
@@ -214,12 +193,42 @@
                                             </DataTrigger>
                                         </Label.Triggers>
                                     </Label>
-
-
+                                    <Label Text="{Binding XLargeDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label"
+                                                             Binding="{Binding XLargeDD}"
+                                                             Value="0">
+                                                <Setter Property="IsVisible" Value="False"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                    <Label Text="{Binding XLargeTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label"
+                                                             Binding="{Binding XLargeTrplTrpl}"
+                                                             Value="0">
+                                                <Setter Property="IsVisible" Value="False"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
+                                </StackLayout>
+                                <!--#region Row Custom-->
+                                <StackLayout Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Vertical" Margin="0,0,0,10">
+                                    <BoxView BackgroundColor="#351209" HeightRequest="1"/>
+                                    <Label Text="Custom" Style="{StaticResource labels}"/>
+                                    <Label Text="{Binding Custom}" Style="{StaticResource otherlabels}">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label"
+                                                             Binding="{Binding Custom}"
+                                                             Value="0">
+                                                <Setter Property="IsVisible" Value="False"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                    </Label>
                                 </StackLayout>
                                 <!--#endregion-->
 
-                                <StackLayout Grid.Row="3" Grid.ColumnSpan="2">
+                                <StackLayout Grid.Row="4" Grid.ColumnSpan="2">
                                     <Button x:Name="CompleteButton" CornerRadius="30" Margin="20,0,20,0" 
                                                 Text="Order Complete"
                                                 IsEnabled="True"
