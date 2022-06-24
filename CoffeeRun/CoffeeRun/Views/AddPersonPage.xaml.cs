@@ -20,7 +20,6 @@ namespace CoffeeRun.Views
         private SQLiteAsyncConnection _connection;
         private ObservableCollection<Customer> _customers;
         private ObservableCollection<CurrentOrder> _currentOrder;
-        private ObservableCollection<CoffeeTypes> _coffeeTypes;
         private readonly Customer customer;
         private readonly bool update = false;
         private readonly CurrentOrder currentOrder;
@@ -77,10 +76,8 @@ namespace CoffeeRun.Views
         {
             base.OnAppearing();
             await _connection.CreateTableAsync<Customer>();
-            await _connection.CreateTableAsync<CoffeeTypes>();
             _customers = new ObservableCollection<Customer>((await _connection.Table<Customer>().ToListAsync()));
             _currentOrder = new ObservableCollection<CurrentOrder>(await _connection.Table<CurrentOrder>().ToListAsync());
-            _coffeeTypes = new ObservableCollection<CoffeeTypes>(await _connection.Table<CoffeeTypes>().ToListAsync());
         }
 
         async void Save_Clicked(object sender, EventArgs e)
