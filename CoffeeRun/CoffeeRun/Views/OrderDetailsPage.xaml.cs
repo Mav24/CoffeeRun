@@ -54,42 +54,51 @@ namespace CoffeeRun.Views
                     case "Small":
                         if (item.CoffeeType == "Black")
                             orderDetails.SmallBlack += 1;
-                        if (item.CoffeeType == "2 Cream")
-                            orderDetails.Small2Cream += 1;
-                        if (item.CoffeeType == "Double Double")
-                            orderDetails.SmallDD += 1;
                         if (item.CoffeeType == "Regular")
                             orderDetails.SmallRegular += 1;
+                        if (item.CoffeeType == "Dbl Dbl")
+                            orderDetails.SmallDD += 1;
+                        if (item.CoffeeType == "Trpl Trpl")
+                            orderDetails.SmallTrplTrpl += 1;
+                        if(item.Custom == true)
+                            orderDetails.Custom += $"{item.CoffeeSize} : {item.CoffeeType}" + Environment.NewLine;
                         break;
                     case "Medium":
                         if (item.CoffeeType == "Black")
                             orderDetails.MediumBlack += 1;
-                        if (item.CoffeeType == "2 Cream")
-                            orderDetails.Medium2Cream += 1;
-                        if (item.CoffeeType == "Double Double")
-                            orderDetails.MediumDD += 1;
                         if (item.CoffeeType == "Regular")
                             orderDetails.MediumRegular += 1;
+                        if (item.CoffeeType == "Dbl Dbl")
+                            orderDetails.MediumDD += 1;
+                        if (item.CoffeeType == "Trpl Trpl")
+                            orderDetails.MediumTrplTrpl += 1;
+                        if (item.Custom == true)
+                            orderDetails.Custom += $"{item.CoffeeSize} : {item.CoffeeType}" + Environment.NewLine;
                         break;
                     case "Large":
+
                         if (item.CoffeeType == "Black")
                             orderDetails.LargeBlack += 1;
-                        if (item.CoffeeType == "2 Cream")
-                            orderDetails.Large2Cream += 1;
-                        if (item.CoffeeType == "Double Double")
-                            orderDetails.LargeDD += 1;
                         if (item.CoffeeType == "Regular")
                             orderDetails.LargeRegular += 1;
+                        if (item.CoffeeType == "Dbl Dbl")
+                            orderDetails.LargeDD += 1;
+                        if (item.CoffeeType == "Trpl Trpl")
+                            orderDetails.LargeTrplTrpl += 1;
+                        if (item.Custom == true)
+                            orderDetails.Custom += $"{item.CoffeeSize} : {item.CoffeeType}" + Environment.NewLine;
                         break;
                     case "X-Large":
                         if (item.CoffeeType == "Black")
                             orderDetails.XLargeBlack += 1;
-                        if (item.CoffeeType == "2 Cream")
-                            orderDetails.XLarge2Cream += 1;
-                        if (item.CoffeeType == "Double Double")
-                            orderDetails.XLargeDD += 1;
                         if (item.CoffeeType == "Regular")
                             orderDetails.XLargeRegular += 1;
+                        if (item.CoffeeType == "Dbl Dbl")
+                            orderDetails.XLargeDD += 1;
+                        if (item.CoffeeType == "Trpl Trpl")
+                            orderDetails.XLargeTrplTrpl += 1;
+                        if (item.Custom == true)
+                            orderDetails.Custom += $"{item.CoffeeSize} : {item.CoffeeType}" + Environment.NewLine;
                         break;
                     default:
                         break;

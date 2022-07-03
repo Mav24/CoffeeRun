@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.sfosquad.coffeerun" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
 	<application android:label="CoffeeRun" android:icon="@drawable/Icon">
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-9850737619470713~3668650029"/>

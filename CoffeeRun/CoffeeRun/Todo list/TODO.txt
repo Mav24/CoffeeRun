@@ -46,3 +46,7 @@ Feb 21 2020
 
 June 18, 2022
 - Look in to creating picker from a database list
+
+June 24
+- Finished with order page.
+- Need to fix edit user ( user coffee type isn't available if it is created as custom)

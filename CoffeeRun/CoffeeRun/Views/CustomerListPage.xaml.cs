@@ -132,6 +132,7 @@ namespace CoffeeRun.Views
                                 Name = item.Name,
                                 CoffeeSize = item.CoffeeSize,
                                 CoffeeType = item.CoffeeType,
+                                Custom = item.Custom,
                                 Paid = false
                             };
                             await _connection.InsertAsync(order);
@@ -175,6 +176,7 @@ namespace CoffeeRun.Views
                         Name = item.Name,
                         CoffeeSize = item.CoffeeSize,
                         CoffeeType = item.CoffeeType,
+                        Custom = item.Custom,
                         Paid = false
                     };
                     await _connection.InsertAsync(order);

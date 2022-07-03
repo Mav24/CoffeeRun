@@ -13,6 +13,7 @@ namespace CoffeeRun.Models
         public string Name { get; set; }
         public string CoffeeSize { get; set; }
         public string CoffeeType { get; set; }
+        public bool Custom { get; set; }
         public bool AddToOrderChecked { get; set; }
 
     }
