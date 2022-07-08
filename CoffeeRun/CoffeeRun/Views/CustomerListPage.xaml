@@ -32,7 +32,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame HasShadow="True" BackgroundColor="#E8E1D1" Margin="10">
+                            <Frame HasShadow="True" BackgroundColor="#E8E1D1" Margin="10" CornerRadius="30">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <StackLayout VerticalOptions="Center" HorizontalOptions="StartAndExpand">
                                         <Label Text="{Binding Name}" Style="{StaticResource labels}"/>

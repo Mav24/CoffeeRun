@@ -50,3 +50,6 @@ June 18, 2022
 June 24
 - Finished with order page.
 - Need to fix edit user ( user coffee type isn't available if it is created as custom)
+
+July 7, 2022
+- Fixed issue with adding custom coffee type. When editing, it will now show the custom coffee type entry

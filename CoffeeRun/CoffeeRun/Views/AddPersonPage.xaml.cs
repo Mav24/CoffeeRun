@@ -30,6 +30,7 @@ namespace CoffeeRun.Views
             GetConnection();
         }
 
+        
         public AddPersonPage(Customer customer, bool update)
         {
             InitializeComponent();
@@ -38,11 +39,19 @@ namespace CoffeeRun.Views
             this.customer = customer;
 
             // Fill fields with info
-            name.Text = customer.Name;
-            coffeetype.SelectedItem = customer.CoffeeType;
-            coffeesize.SelectedItem = customer.CoffeeSize;
-
-
+            if (customer.Custom)
+            {
+                name.Text = customer.Name;
+                coffeetype.SelectedItem = "Custom";
+                customCoffeeType.Text = customer.CoffeeType.ToString();
+                coffeesize.SelectedItem = customer.CoffeeSize;
+            }
+            else
+            {
+                name.Text = customer.Name;
+                coffeetype.SelectedItem = customer.CoffeeType;
+                coffeesize.SelectedItem = customer.CoffeeSize;
+            }
         }
 
         public AddPersonPage(CurrentOrder currentOrderCustomer, bool update)
@@ -139,15 +148,33 @@ namespace CoffeeRun.Views
         {
             try
             {
-                Customer updateCustomer = new Customer()
+                Customer updateCustomer = new Customer();
+
+                if (customer.Custom)
                 {
-                    Id = customer.Id,
-                    Name = name.Text,
-                    CoffeeSize = coffeesize.SelectedItem.ToString(),
-                    CoffeeType = coffeetype.SelectedItem.ToString(),
-                    Custom = false,
-                    AddToOrderChecked = false
-                };
+                    updateCustomer = new Customer()
+                    {
+                        Id = customer.Id,
+                        Name = name.Text,
+                        CoffeeSize = coffeesize.SelectedItem.ToString(),
+                        CoffeeType = customCoffeeType.Text,
+                        Custom = customer.Custom,
+                        AddToOrderChecked = false
+                    };
+                }
+                else
+                {
+                    updateCustomer = new Customer() 
+                    {
+                        Id = customer.Id,
+                        Name = name.Text,
+                        CoffeeSize = coffeesize.SelectedItem.ToString(),
+                        CoffeeType = coffeetype.SelectedItem.ToString(),
+                        Custom = customer.Custom,
+                        AddToOrderChecked = false
+                    };
+                }
+                
                 if (string.IsNullOrWhiteSpace(name.Text) || coffeesize.SelectedIndex == -1 || coffeetype.SelectedIndex == -1)
                 {
                     await DisplayAlert("Error", "All fields need to be filled out", "OK");
@@ -155,6 +182,7 @@ namespace CoffeeRun.Views
 
                 else
                 {
+                    // This is so it will up the current order page also
                     if (_currentOrder.Count > 0)
                     {
                         CurrentOrder updateCurrentOrder = new CurrentOrder()
@@ -197,10 +225,12 @@ namespace CoffeeRun.Views
             if(isCustom == "Custom")
             {
                 customCoffeeType.IsVisible = true;
+                customer.Custom = true;
             }
             else
             {
                 customCoffeeType.IsVisible = false;
+                customer.Custom = false;
             }
         }
     }
