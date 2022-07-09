@@ -110,7 +110,6 @@ namespace CoffeeRun.Views
 
         async void CompleteOrder_Click(object sender, EventArgs e)
         {
-            //await DisplayAlert("Coming Soon!", "Not yet working", "Ok");
             if (_currentOrder.Count > 0)
             {
                 if (await DisplayAlert("Finish order!", "Are you sure you want to finish current order?", "Yes", "No"))

@@ -225,12 +225,18 @@ namespace CoffeeRun.Views
             if(isCustom == "Custom")
             {
                 customCoffeeType.IsVisible = true;
-                customer.Custom = true;
+                if(customer != null)
+                {
+                    customer.Custom = true;
+                }
             }
             else
             {
                 customCoffeeType.IsVisible = false;
-                customer.Custom = false;
+                if(customer != null)
+                {
+                    customer.Custom = false;
+                }
             }
         }
     }

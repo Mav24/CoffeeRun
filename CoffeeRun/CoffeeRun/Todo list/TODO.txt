@@ -53,3 +53,7 @@ June 24
 
 July 7, 2022
 - Fixed issue with adding custom coffee type. When editing, it will now show the custom coffee type entry
+
+July 8, 2022
+- Fixed issue where adding new person would crash the app. due to selection change event. I need to condition that would check for a null value
+- Updated the look of the order detail page

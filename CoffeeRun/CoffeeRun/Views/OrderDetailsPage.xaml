@@ -28,7 +28,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
-                            <Grid Padding="5" Margin="10" RowSpacing="1">
+                            <Grid Padding="5" Margin="10" RowSpacing="2">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="AUTO"/>
                                     <RowDefinition Height="AUTO"/>
@@ -39,196 +39,211 @@
                                 </Grid.ColumnDefinitions>
 
                                 <!--#region Row Small-->
-                                <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,0">
-                                    <Label Text="Small" Style="{StaticResource labels}"/>
-                                    <!--Row Devider-->
-                                    <BoxView BackgroundColor="#351209" HeightRequest="1" WidthRequest="0"/>
-                                    <Label Text="{Binding SmallBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                <Frame Grid.Row="0" HasShadow="True" BackgroundColor="#E0D7C0" CornerRadius="50" Margin="10">
+                                    <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,0">
+                                        <Label Text="Small" Style="{StaticResource labels}"/>
+                                        <!--Row Devider-->
+                                        <BoxView BackgroundColor="#351209" HeightRequest="1" WidthRequest="0"/>
+                                        <Label Text="{Binding SmallBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding SmallBlack}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding SmallRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding SmallRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding SmallRegular}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding SmallDD, StringFormat='{0} : Dbl Dbl'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding SmallDD, StringFormat='{0} : Dbl Dbl'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding SmallDD}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding SmallTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding SmallTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding SmallTrplTrpl}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                </StackLayout>
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                
                                 <!--#endregion-->
 
                                 <!--#region Row Medium-->
-                                <StackLayout Grid.Row="2" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,10">
-                                    <Label Text="Medium" Style="{StaticResource labels}"/>
-                                    <!--Row Devider-->
-                                    <BoxView BackgroundColor="#351209" HeightRequest="1"/>
-                                    <Label Text="{Binding MediumBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                <Frame Grid.Row="2" HasShadow="True" BackgroundColor="#E0D7C0" CornerRadius="50" Margin="10">
+                                    <StackLayout Grid.Row="2" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,10">
+                                        <Label Text="Medium" Style="{StaticResource labels}"/>
+                                        <!--Row Devider-->
+                                        <BoxView BackgroundColor="#351209" HeightRequest="1"/>
+                                        <Label Text="{Binding MediumBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding MediumBlack}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding MediumRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding MediumRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding MediumRegular}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding MediumDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding MediumDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding MediumDD}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding MediumTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding MediumTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding MediumTrplTrpl}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                </StackLayout>
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                
                                 <!--#endregion-->
 
                                 <!--#region Row Large-->
-                                <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5,0,0,5">
-                                    <Label Text="Large" Style="{StaticResource labels }"/>
-                                    <!--Row Devider-->
-                                    <BoxView BackgroundColor="#351209" HeightRequest="1"/>
-                                    <Label Text="{Binding LargeBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                <Frame Grid.Row="0" Grid.Column="1" HasShadow="True" BackgroundColor="#E0D7C0" CornerRadius="50" Margin="10">
+                                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5,0,0,5">
+                                        <Label Text="Large" Style="{StaticResource labels }"/>
+                                        <!--Row Devider-->
+                                        <BoxView BackgroundColor="#351209" HeightRequest="1"/>
+                                        <Label Text="{Binding LargeBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding LargeBlack}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding LargeRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding LargeRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding LargeRegular}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding LargeDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding LargeDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding LargeDD}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding LargeTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding LargeTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding LargeTrplTrpl}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                </StackLayout>
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                
                                 <!--#endregion-->
 
                                 <!--#region Row X-Large-->
-                                <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Vertical" Margin="0,0,0,10">
-                                    <Label Text="X-Large" Style="{StaticResource labels}"/>
-                                    <!--Row Devider-->
-                                    <BoxView BackgroundColor="#351209" HeightRequest="1"/>
-                                    <Label Text="{Binding XLargeBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                <Frame Grid.Row="2" Grid.Column="1" HasShadow="True" BackgroundColor="#E0D7C0" CornerRadius="50" Margin="10">
+                                    <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Vertical" Margin="0,0,0,10">
+                                        <Label Text="X-Large" Style="{StaticResource labels}"/>
+                                        <!--Row Devider-->
+                                        <BoxView BackgroundColor="#351209" HeightRequest="1"/>
+                                        <Label Text="{Binding XLargeBlack, StringFormat='{0}: Black'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding XLargeBlack}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding XLargeRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding XLargeRegular, StringFormat='{0} : Regular'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding XLargeRegular}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding XLargeDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding XLargeDD, StringFormat='{0}: Dbl Dbl'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding XLargeDD}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                    <Label Text="{Binding XLargeTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <Label Text="{Binding XLargeTrplTrpl, StringFormat='{0}: Trpl Trpl'}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding XLargeTrplTrpl}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                </StackLayout>
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                
                                 <!--#region Row Custom-->
-                                <StackLayout Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Vertical" Margin="0,0,0,10">
-                                    <BoxView BackgroundColor="#351209" HeightRequest="1"/>
-                                    <Label Text="Custom" Style="{StaticResource labels}"/>
-                                    <Label Text="{Binding Custom}" Style="{StaticResource otherlabels}">
-                                        <Label.Triggers>
-                                            <DataTrigger TargetType="Label"
+                                <Frame Grid.Row="3" Grid.ColumnSpan="2" HasShadow="True" BackgroundColor="#E0D7C0" CornerRadius="50" Margin="10">
+                                    <StackLayout Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" Orientation="Vertical" Margin="0,0,0,10">
+                                        <BoxView BackgroundColor="#351209" HeightRequest="1"/>
+                                        <Label Text="Custom" Style="{StaticResource labels}"/>
+                                        <Label Text="{Binding Custom}" Style="{StaticResource otherlabels}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
                                                              Binding="{Binding Custom}"
                                                              Value="0">
-                                                <Setter Property="IsVisible" Value="False"/>
-                                            </DataTrigger>
-                                        </Label.Triggers>
-                                    </Label>
-                                </StackLayout>
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                                
                                 <!--#endregion-->
 
-                                <StackLayout Grid.Row="4" Grid.ColumnSpan="2">
+                                <StackLayout Grid.Row="4" Grid.ColumnSpan="2" Margin="10">
                                     <Button x:Name="CompleteButton" CornerRadius="30" Margin="20,0,20,0" 
                                                 Text="Order Complete"
                                                 IsEnabled="True"
