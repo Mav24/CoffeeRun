@@ -8,6 +8,30 @@
              x:Class="CoffeeRun.Views.AddPersonPage"
              Visual="Material"
              Title="Add Customer">
+
+    <!--<Grid RowDefinitions=".2*, .7*, .1*">
+        <Entry Placeholder="Enter Name"
+               TextColor="#351209"
+               Keyboard="Text"/>
+        <CollectionView Grid.Row="1"
+                        Margin="15"
+                        ItemsSource="{Binding TypesOfCoffee}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="5"
+                    Orientation="Vertical"
+                    Span="2"
+                    VerticalItemSpacing="5"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame>
+                        <RadioButton 
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>-->
     <ContentPage.Content>
         <ScrollView BackgroundColor="#E0D7C0">
             <Grid RowSpacing="2">

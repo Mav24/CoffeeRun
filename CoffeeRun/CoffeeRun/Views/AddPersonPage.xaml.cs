@@ -17,6 +17,8 @@ namespace CoffeeRun.Views
     //[QueryProperty("Customer", "customer")]
     public partial class AddPersonPage : ContentPage
     {
+        //public ObservableCollection<TypesOfCoffee> TypesOfCoffee { get; set; }
+
         private SQLiteAsyncConnection _connection;
         private ObservableCollection<Customer> _customers;
         private ObservableCollection<CurrentOrder> _currentOrder;
