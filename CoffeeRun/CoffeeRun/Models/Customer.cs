@@ -1,20 +1,15 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SQLite;
 
-namespace CoffeeRun.Models
+namespace CoffeeRun.Models;
+
+public class Customer
 {
-    public class Customer
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        [Unique]
-        public string Name { get; set; }
-        public string CoffeeSize { get; set; }
-        public string CoffeeType { get; set; }
-        public bool Custom { get; set; }
-        public bool AddToOrderChecked { get; set; }
-
-    }
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
+    [Unique]
+    public string? Name { get; set; }
+    public string? CoffeeSize { get; set; }
+    public string? CoffeeType { get; set; }
+    public bool Custom { get; set; }
+    public bool AddToOrderChecked { get; set; }
 }

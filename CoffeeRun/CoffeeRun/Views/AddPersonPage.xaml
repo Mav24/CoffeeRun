@@ -1,108 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
-             mc:Ignorable="d"
              x:Class="CoffeeRun.Views.AddPersonPage"
-             Visual="Material"
              Title="Add Customer">
 
-    <!--<Grid RowDefinitions=".2*, .7*, .1*">
-        <Entry Placeholder="Enter Name"
-               TextColor="#351209"
-               Keyboard="Text"/>
-        <CollectionView Grid.Row="1"
-                        Margin="15"
-                        ItemsSource="{Binding TypesOfCoffee}">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout
-                    HorizontalItemSpacing="5"
-                    Orientation="Vertical"
-                    Span="2"
-                    VerticalItemSpacing="5"/>
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame>
-                        <RadioButton 
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </Grid>-->
-    <ContentPage.Content>
-        <ScrollView BackgroundColor="#E0D7C0">
-            <Grid RowSpacing="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="AUTO"/>
-                    <RowDefinition Height="AUTO"/>
-                    <RowDefinition Height="AUTO"/>
-                    <RowDefinition Height="AUTO"/>
-                </Grid.RowDefinitions>
-                <!--Header Image-->
-                <Image Source="coffeecups.jpg" Aspect="AspectFill" HeightRequest="200"/>
+    <ScrollView BackgroundColor="#E0D7C0">
+        <Grid RowSpacing="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+            </Grid.RowDefinitions>
+            <!--Header Image-->
+            <Image Source="coffeecups.jpg" Aspect="AspectFill" HeightRequest="200"/>
 
 
-                <!--Entry-->
-                <StackLayout Grid.Row="1" Margin="20,20,20,0" Padding="10">
-                    <Entry x:Name="name"
-                           Placeholder="Enter name"
-                           TextColor="#351209"
-                           Keyboard="Text"/>
-                    <Picker x:Name="coffeetype" Title="Select Coffee"
-                            TextColor="#351209"
-                            VerticalOptions="CenterAndExpand"
-                            SelectedIndexChanged="coffeetype_SelectedIndexChanged">
-                        <Picker.Items>
-                            <x:String>Black</x:String>
-                            <x:String>Regular</x:String>
-                            <x:String>Dbl Dbl</x:String>
-                            <x:String>Trpl Trpl</x:String>
-                            <x:String>Custom</x:String>
-                        </Picker.Items>
-                    </Picker>
-                    <Entry x:Name="customCoffeeType" Placeholder="Enter Coffee Type"
-                           IsVisible="false"/>
-                    <Picker x:Name="coffeesize" Title="Select Size"
-                            TextColor="#351209"
-                            VerticalOptions="CenterAndExpand">
-                        <Picker.Items>
-                            <x:String>Small</x:String>
-                            <x:String>Medium</x:String>
-                            <x:String>Large</x:String>
-                            <x:String>X-Large</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </StackLayout>
+            <!--Entry-->
+            <StackLayout Grid.Row="1" Margin="20,20,20,0" Padding="10">
+                <Entry x:Name="name"
+                       Placeholder="Enter name"
+                       TextColor="#351209"
+                       Keyboard="Text"/>
+                <Picker x:Name="coffeetype" Title="Select Coffee"
+                        TextColor="#351209"
+                        VerticalOptions="CenterAndExpand"
+                        SelectedIndexChanged="coffeetype_SelectedIndexChanged">
+                    <Picker.Items>
+                        <x:String>Black</x:String>
+                        <x:String>Regular</x:String>
+                        <x:String>Dbl Dbl</x:String>
+                        <x:String>Trpl Trpl</x:String>
+                        <x:String>Custom</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Entry x:Name="customCoffeeType" Placeholder="Enter Coffee Type"
+                       IsVisible="false"/>
+                <Picker x:Name="coffeesize" Title="Select Size"
+                        TextColor="#351209"
+                        VerticalOptions="CenterAndExpand">
+                    <Picker.Items>
+                        <x:String>Small</x:String>
+                        <x:String>Medium</x:String>
+                        <x:String>Large</x:String>
+                        <x:String>X-Large</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
 
-                <StackLayout Grid.Row="2" Margin="20" Spacing="20" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="cancel" Text="Cancel"
-                            WidthRequest="150"
-                            FontSize="Large"
-                            BackgroundColor="#351209" 
-                            TextColor="#E0D7C0"
-                            CornerRadius="25"
-                            Clicked="Cancel_Clicked"/>
-                    <Button x:Name="save" Text="Save"
-                            WidthRequest="150"
-                            FontSize="Large"
-                            BackgroundColor="#351209"
-                            TextColor="#E0D7C0"
-                            CornerRadius="20"
-                            Clicked="Save_Clicked"/>
-                    
-                </StackLayout>
-                <!--AdMob-->
-                <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/7725102036" VerticalOptions="FillAndExpand">
-                    <controls:MTAdView.HeightRequest>
-                        <x:OnIdiom>
-                            <x:OnIdiom.Phone>90</x:OnIdiom.Phone>
-                        </x:OnIdiom>
-                    </controls:MTAdView.HeightRequest>
-                </controls:MTAdView>
-            </Grid>
-        </ScrollView>
-    </ContentPage.Content>
+            <StackLayout Grid.Row="2" Margin="20" Spacing="20" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Button x:Name="cancel" Text="Cancel"
+                        WidthRequest="150"
+                        FontSize="Large"
+                        BackgroundColor="#351209" 
+                        TextColor="#E0D7C0"
+                        CornerRadius="25"
+                        Clicked="Cancel_Clicked"/>
+                <Button x:Name="save" Text="Save"
+                        WidthRequest="150"
+                        FontSize="Large"
+                        BackgroundColor="#351209"
+                        TextColor="#E0D7C0"
+                        CornerRadius="20"
+                        Clicked="Save_Clicked"/>
+                
+            </StackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>

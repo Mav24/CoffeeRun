@@ -1,18 +1,14 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SQLite;
 
-namespace CoffeeRun.Models
+namespace CoffeeRun.Models;
+
+public class CurrentOrder
 {
-    public class CurrentOrder
-    {
-        [PrimaryKey]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string CoffeeSize { get; set; }
-        public string CoffeeType { get; set; }
-        public bool Custom { get; set; }
-        public bool Paid { get; set; }
-    }
+    [PrimaryKey]
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public string? CoffeeSize { get; set; }
+    public string? CoffeeType { get; set; }
+    public bool Custom { get; set; }
+    public bool Paid { get; set; }
 }

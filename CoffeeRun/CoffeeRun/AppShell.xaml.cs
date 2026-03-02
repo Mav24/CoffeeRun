@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+namespace CoffeeRun;
 
-using Xamarin.Forms;
-
-namespace CoffeeRun
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

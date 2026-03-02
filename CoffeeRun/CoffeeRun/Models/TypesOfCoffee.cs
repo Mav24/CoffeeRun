@@ -1,17 +1,13 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SQLite;
 
-namespace CoffeeRun.Models
+namespace CoffeeRun.Models;
+
+public class TypesOfCoffee
 {
-    public class TypesOfCoffee
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; set; }
 
-        [Unique]
-        public string CoffeeType { get; set; }
-        public string Size { get; set; }
-    }
+    [Unique]
+    public string? CoffeeType { get; set; }
+    public string? Size { get; set; }
 }
