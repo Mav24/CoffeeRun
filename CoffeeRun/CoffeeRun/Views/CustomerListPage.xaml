@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
-             mc:Ignorable="d"
              x:Class="CoffeeRun.Views.CustomerListPage"
              Title="Customer List">
 
@@ -13,62 +9,51 @@
                      Clicked="AddCustomer_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    <ContentPage.Content>
-                
-            <StackLayout BackgroundColor="#E0D7C0">
-            <!--AdMob-->
-            <controls:MTAdView PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/3773430494" VerticalOptions="FillAndExpand" Margin="0,5,0,0">
-                <controls:MTAdView.HeightRequest>
-                    <x:OnIdiom>
-                        <x:OnIdiom.Phone>90</x:OnIdiom.Phone>
-                    </x:OnIdiom>
-                </controls:MTAdView.HeightRequest>
-            </controls:MTAdView>
-            <ListView x:Name="customerslist"
-                      SeparatorColor="Black"
-                      HasUnevenRows="True"
-                      CachingStrategy="RecycleElementAndDataTemplate"
-                      ItemTapped="Customerslist_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame HasShadow="True" BackgroundColor="#E8E1D1" Margin="10" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                    <StackLayout VerticalOptions="Center" HorizontalOptions="StartAndExpand">
-                                        <Label Text="{Binding Name}" Style="{StaticResource labels}"/>
-                                        <StackLayout Orientation="Horizontal" Spacing="20">
-                                            <Label Text="{Binding CoffeeSize, StringFormat='{0}:'}" Style="{StaticResource otherlabels}"/>
-                                            <Label Text="{Binding CoffeeType}" Style="{StaticResource otherlabels}"/>
-                                        </StackLayout>
-                                    </StackLayout>
-                                    <StackLayout VerticalOptions="Center">
-                                        <Label Text="Add to order" Style="{StaticResource otherlabels}"/>
-                                        <CheckBox x:Name="checkBox" HorizontalOptions="Center" Color="#351209"
-                                                  CheckedChanged="CheckBox_CheckedChanged" IsChecked="{Binding AddToOrderChecked}"/>
+    <StackLayout BackgroundColor="#E0D7C0">
+        <ListView x:Name="customerslist"
+                  SeparatorColor="Black"
+                  HasUnevenRows="True"
+                  CachingStrategy="RecycleElementAndDataTemplate"
+                  ItemTapped="Customerslist_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame HasShadow="True" BackgroundColor="#E8E1D1" Margin="10" CornerRadius="30">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Name}" Style="{StaticResource labels}"/>
+                                    <StackLayout Orientation="Horizontal" Spacing="20">
+                                        <Label Text="{Binding CoffeeSize, StringFormat='{0}:'}" Style="{StaticResource otherlabels}"/>
+                                        <Label Text="{Binding CoffeeType}" Style="{StaticResource otherlabels}"/>
                                     </StackLayout>
                                 </StackLayout>
-                            </Frame>
-                            <ViewCell.ContextActions>
-                                <MenuItem
-                                    Text="Delete"
-                                    IsDestructive="True"
-                                    Clicked="DeleteCustomer"
-                                    CommandParameter="{Binding .}"/>
-                                <MenuItem
-                                    Text="Edit"
-                                    Clicked="EditCustomer"
-                                    CommandParameter="{Binding .}"/>
-                            </ViewCell.ContextActions>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <StackLayout>
-                <Button x:Name="CreateNewOrder" Text="Add/Create"
-                        Margin="30,0,30,10"
-                        Clicked="CreateNewOrder_Clicked"/>
-            </StackLayout>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text="Add to order" Style="{StaticResource otherlabels}"/>
+                                    <CheckBox x:Name="checkBox" HorizontalOptions="Center" Color="#351209"
+                                              CheckedChanged="CheckBox_CheckedChanged" IsChecked="{Binding AddToOrderChecked}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <ViewCell.ContextActions>
+                            <MenuItem
+                                Text="Delete"
+                                IsDestructive="True"
+                                Clicked="DeleteCustomer"
+                                CommandParameter="{Binding .}"/>
+                            <MenuItem
+                                Text="Edit"
+                                Clicked="EditCustomer"
+                                CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout>
+            <Button x:Name="CreateNewOrder" Text="Add/Create"
+                    Margin="30,0,30,10"
+                    Clicked="CreateNewOrder_Clicked"/>
         </StackLayout>
+    </StackLayout>
 
-    </ContentPage.Content>
 </ContentPage>

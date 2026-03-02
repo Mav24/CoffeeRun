@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+namespace CoffeeRun.Models;
 
-namespace CoffeeRun.Models
+public class GetAdIds
 {
-    public class GetAdIds
-    {
-        public string BannerId { get; set; }
+    public string? BannerId { get; set; }
 
-        public string InterstitialId { get; set; }
-    }
+    public string? InterstitialId { get; set; }
 }

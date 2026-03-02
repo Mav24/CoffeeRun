@@ -1,136 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
-             mc:Ignorable="d"
              x:Class="CoffeeRun.Views.CurrentOrderPage"
              Title="Current Order">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add/Create Order"
                      Clicked="AddOrCreateOrder"/>
     </ContentPage.ToolbarItems>
-    <ContentPage.Content>
-        <Grid RowSpacing="0" VerticalOptions="FillAndExpand" BackgroundColor="#E0D7C0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="AUTO"/>
-                <RowDefinition Height="AUTO"/>
-            </Grid.RowDefinitions>
-            
-            <!--Header Image-->
-            <Image Source="personpageimage.jpg" Aspect="AspectFill" HeightRequest="150"/>
-            <StackLayout Grid.Row="1" BackgroundColor="#351209" HorizontalOptions="FillAndExpand">
-                <BoxView HeightRequest="20"/>
-            </StackLayout>
+    <Grid RowSpacing="0" VerticalOptions="FillAndExpand" BackgroundColor="#E0D7C0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Header Image-->
+        <Image Source="personpageimage.jpg" Aspect="AspectFill" HeightRequest="150"/>
+        <StackLayout Grid.Row="1" BackgroundColor="#351209" HorizontalOptions="FillAndExpand">
+            <BoxView HeightRequest="20"/>
+        </StackLayout>
 
-            <Frame TranslationY="100" HasShadow="True" CornerRadius="10" Margin="15,0,15,0" Padding="0" HeightRequest="50" VerticalOptions="StartAndExpand" BackgroundColor="#E8E1D1">
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand">
-                        <Label Text="Customers" HorizontalOptions="Center" Style="{StaticResource labels}"/>
-                        <StackLayout HorizontalOptions="Center">
-                            <Label x:Name="numberOfCoffees" d:Text="0" HorizontalOptions="Center" Style="{StaticResource otherlabels}"/>
-                        </StackLayout>
+        <Frame TranslationY="100" HasShadow="True" CornerRadius="10" Margin="15,0,15,0" Padding="0" HeightRequest="50" VerticalOptions="StartAndExpand" BackgroundColor="#E8E1D1">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand">
+                    <Label Text="Customers" HorizontalOptions="Center" Style="{StaticResource labels}"/>
+                    <StackLayout HorizontalOptions="Center">
+                        <Label x:Name="numberOfCoffees" Text="0" HorizontalOptions="Center" Style="{StaticResource otherlabels}"/>
                     </StackLayout>
+                </StackLayout>
 
-                    <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand">
-                        <Label Text="Paid" HorizontalOptions="Center" Style="{StaticResource labels}"/>
-                        <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label x:Name="paidChecked" d:Text="0" HorizontalOptions="Center" Style="{StaticResource otherlabels}"/>
-                        </StackLayout>
+                <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="0" HorizontalOptions="FillAndExpand">
+                    <Label Text="Paid" HorizontalOptions="Center" Style="{StaticResource labels}"/>
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label x:Name="paidChecked" Text="0" HorizontalOptions="Center" Style="{StaticResource otherlabels}"/>
                     </StackLayout>
-                </Grid>
-            </Frame>
+                </StackLayout>
+            </Grid>
+        </Frame>
 
-            <!--This is another look I'm working on-->
-            
-            <!--<StackLayout Grid.Row="2" Margin="10" Padding="0">
-                <CollectionView x:Name="collectionViewCurrentOrderList"
-                                VerticalOptions="FillAndExpand">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
+        <ListView x:Name="currentOrderList" BackgroundColor="#E0D7C0" Grid.Row="2"
+                      SeparatorColor="Black"
+                      HasUnevenRows="True"
+                      CachingStrategy="RecycleElementAndDataTemplate"
+                  ItemSelected="CurrentOrderList_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
 
-                            <StackLayout Margin="10,0,0,10">
-                                <Frame Padding="0" Margin="0,0,0,0" CornerRadius="10">
-                                    <StackLayout Margin="10" Spacing="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                        <Frame BackgroundColor="#351209" Padding="0" HeightRequest="50" WidthRequest="50" CornerRadius="25">
-                                            <Image Source="coffeecup" Aspect="AspectFit"/>
-                                        </Frame>
-                                        <StackLayout Padding="5,0,0,0" Spacing="0" HorizontalOptions="StartAndExpand">
-                                            <Label Text="{Binding Name}" Style="{StaticResource labels}"/>
-                                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" Spacing="25" HorizontalOptions="StartAndExpand">
-                                                <Label Text="{Binding CoffeeSize}" Style="{StaticResource otherlabels}"/>
-                                                <Label Text="{Binding CoffeeType}" Style="{StaticResource otherlabels}"/>
-                                            </StackLayout>
-                                        </StackLayout>
-                                        <StackLayout Padding="0,0,15,0" VerticalOptions="Center">
-                                            <Label Text="Paid" Style="{StaticResource otherlabels}"/>
-                                            <CheckBox HorizontalOptions="Center" Color="#351209"
-                                                      CheckedChanged="CheckBox_CheckedChanged" BindingContext="{Binding .}" IsChecked="{Binding Paid}"/>
-                                        </StackLayout>
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>-->
-            
-            
-            <ListView x:Name="currentOrderList" BackgroundColor="#E0D7C0" Grid.Row="2"
-                          SeparatorColor="Black"
-                          HasUnevenRows="True"
-                          CachingStrategy="RecycleElementAndDataTemplate"
-                      ItemSelected="CurrentOrderList_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-
-                        <ViewCell>
-                            <Frame HasShadow="True" BackgroundColor="#E8E1D1" Margin="10,10,15,10" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                    <StackLayout VerticalOptions="Center" HorizontalOptions="StartAndExpand">
-                                        <Label Text="{Binding Name}" Style="{StaticResource labels}"/>
-                                        <StackLayout Orientation="Horizontal" Spacing="20">
-                                            <Label Text="{Binding CoffeeSize, StringFormat='{0}:'}" Style="{StaticResource otherlabels}"/>
-                                            <Label Text="{Binding CoffeeType}" Style="{StaticResource otherlabels}"/>
-                                        </StackLayout>
-                                    </StackLayout>
-                                    <StackLayout VerticalOptions="Center">
-                                        <Label Text="Paid" Style="{StaticResource otherlabels}"/>
-                                        <CheckBox HorizontalOptions="Center" Color="#351209"
-                                                      CheckedChanged="CheckBox_CheckedChanged" BindingContext="{Binding .}" IsChecked="{Binding Paid}"/>
+                    <ViewCell>
+                        <Frame HasShadow="True" BackgroundColor="#E8E1D1" Margin="10,10,15,10" CornerRadius="30">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout VerticalOptions="Center" HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Name}" Style="{StaticResource labels}"/>
+                                    <StackLayout Orientation="Horizontal" Spacing="20">
+                                        <Label Text="{Binding CoffeeSize, StringFormat='{0}:'}" Style="{StaticResource otherlabels}"/>
+                                        <Label Text="{Binding CoffeeType}" Style="{StaticResource otherlabels}"/>
                                     </StackLayout>
                                 </StackLayout>
-                            </Frame>
-                            <ViewCell.ContextActions>
-                                <MenuItem
-                                    Text="Remove"
-                                    IsDestructive="True"
-                                    Clicked="RemoveFromOrder_Clicked"
-                                    CommandParameter="{Binding .}"/>
-                                <MenuItem
-                                    Text="Edit"
-                                    Clicked="EditCustomer_Clicked"
-                                    CommandParameter="{Binding .}"/>
-                            </ViewCell.ContextActions>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <!--AdMob -->
-            <controls:MTAdView Grid.Row="3" PersonalizedAds="True" AdsId="ca-app-pub-9850737619470713/6241933317" VerticalOptions="FillAndExpand">
-                <controls:MTAdView.HeightRequest>
-                    <x:OnIdiom>
-                        <x:OnIdiom.Phone>90</x:OnIdiom.Phone>
-                    </x:OnIdiom>
-                </controls:MTAdView.HeightRequest>
-            </controls:MTAdView>
-        </Grid>
-    </ContentPage.Content>
+                                <StackLayout VerticalOptions="Center">
+                                    <Label Text="Paid" Style="{StaticResource otherlabels}"/>
+                                    <CheckBox HorizontalOptions="Center" Color="#351209"
+                                                  CheckedChanged="CheckBox_CheckedChanged" BindingContext="{Binding .}" IsChecked="{Binding Paid}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <ViewCell.ContextActions>
+                            <MenuItem
+                                Text="Remove"
+                                IsDestructive="True"
+                                Clicked="RemoveFromOrder_Clicked"
+                                CommandParameter="{Binding .}"/>
+                            <MenuItem
+                                Text="Edit"
+                                Clicked="EditCustomer_Clicked"
+                                CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>
